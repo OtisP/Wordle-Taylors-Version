@@ -1,0 +1,5 @@
+#import <Foundation/Foundation.h>
+@interface PodsDummy_Pods_Wordle_Taylors_Version_Wordle_Taylors_VersionUITests : NSObject
+@end
+@implementation PodsDummy_Pods_Wordle_Taylors_Version_Wordle_Taylors_VersionUITests
+@end

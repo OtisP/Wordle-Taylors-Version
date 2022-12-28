@@ -1,0 +1,6 @@
+framework module Pods_Wordle_Taylors_Version_Wordle_Taylors_VersionUITests {
+  umbrella header "Pods-Wordle Taylors Version-Wordle Taylors VersionUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}

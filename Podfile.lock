@@ -1,0 +1,16 @@
+PODS:
+  - CSwiftV (0.0.9)
+
+DEPENDENCIES:
+  - CSwiftV
+
+SPEC REPOS:
+  trunk:
+    - CSwiftV
+
+SPEC CHECKSUMS:
+  CSwiftV: 8dde426ad2a4f645bdfb513b8aa878d555aeff60
+
+PODFILE CHECKSUM: c19bce9ab91cdea9c48766fe6501ea1d064141cf
+
+COCOAPODS: 1.11.3
