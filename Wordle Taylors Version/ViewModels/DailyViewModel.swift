@@ -15,9 +15,13 @@ class DailyViewModel: WordleViewModelProtocol, ObservableObject {
     @Published var guessIndex: Int = 0
 
     func getSong(songs: [Song]) {
-        // TODO: this will do something smarter later
-        currentSong = songs.randomElement()
+        // Get the current date and use it to seed the random number generator
+        // seeding turned out to be messier than I wanted here
+        srand48(Date().daysSince1970)
+        let index = Int(floor((drand48() * Double(songs.count))))
+        currentSong = songs[index]
         print(currentSong?.title ?? "")
+        
         guard let songLyricsDisplayArray = currentSong?.displayLyrics else { return }
         self.songLyricsDisplayArray = songLyricsDisplayArray
         guessIndex = 0
@@ -26,7 +30,7 @@ class DailyViewModel: WordleViewModelProtocol, ObservableObject {
         revealSongLyric()
     }
     
-    func correctGuessed() {
+    func wonGame() {
         // TODO
         print("yay")
     }

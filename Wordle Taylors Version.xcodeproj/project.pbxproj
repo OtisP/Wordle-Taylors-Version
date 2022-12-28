@@ -25,6 +25,7 @@
 		45F59298295C1B9B00E30415 /* PracticeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F59297295C1B9B00E30415 /* PracticeView.swift */; };
 		45F5929A295C1BB700E30415 /* PracticeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F59299295C1BB700E30415 /* PracticeViewModel.swift */; };
 		45F5929C295CBF3200E30415 /* WordleState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F5929B295CBF3200E30415 /* WordleState.swift */; };
+		45F592A0295CF40500E30415 /* Date+WTV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F5929F295CF40500E30415 /* Date+WTV.swift */; };
 		B1C31038EC2ABC1E84A746B1 /* Pods_Wordle_Taylors_Version.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7E7284CAB762C9A740910B9 /* Pods_Wordle_Taylors_Version.framework */; };
 		F471210E062DFC4536E5250C /* Pods_Wordle_Taylors_Version_Wordle_Taylors_VersionUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0022ED103246023949E03648 /* Pods_Wordle_Taylors_Version_Wordle_Taylors_VersionUITests.framework */; };
 /* End PBXBuildFile section */
@@ -70,6 +71,7 @@
 		45F59297295C1B9B00E30415 /* PracticeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PracticeView.swift; sourceTree = "<group>"; };
 		45F59299295C1BB700E30415 /* PracticeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PracticeViewModel.swift; sourceTree = "<group>"; };
 		45F5929B295CBF3200E30415 /* WordleState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordleState.swift; sourceTree = "<group>"; };
+		45F5929F295CF40500E30415 /* Date+WTV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+WTV.swift"; sourceTree = "<group>"; };
 		76D8589799F2E4CA6149EAB6 /* Pods-Wordle Taylors Version-Wordle Taylors VersionUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Wordle Taylors Version-Wordle Taylors VersionUITests.release.xcconfig"; path = "Target Support Files/Pods-Wordle Taylors Version-Wordle Taylors VersionUITests/Pods-Wordle Taylors Version-Wordle Taylors VersionUITests.release.xcconfig"; sourceTree = "<group>"; };
 		B09DD3475DBB5C3E884324CC /* Pods-Wordle Taylors Version-Wordle Taylors VersionUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Wordle Taylors Version-Wordle Taylors VersionUITests.debug.xcconfig"; path = "Target Support Files/Pods-Wordle Taylors Version-Wordle Taylors VersionUITests/Pods-Wordle Taylors Version-Wordle Taylors VersionUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		C6E06E572122BA53EC26CB7E /* Pods_Wordle_Taylors_VersionTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Wordle_Taylors_VersionTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -135,6 +137,7 @@
 				45F5928F295C04FB00E30415 /* Views */,
 				45F5928A295BF7A500E30415 /* SongInfo */,
 				453E416C295BE6E5001F310F /* Wordle_Taylors_VersionApp.swift */,
+				45F5929F295CF40500E30415 /* Date+WTV.swift */,
 				453E4170295BE6E6001F310F /* Assets.xcassets */,
 				453E4172295BE6E6001F310F /* Preview Content */,
 				45F5929B295CBF3200E30415 /* WordleState.swift */,
@@ -466,6 +469,7 @@
 				453E416F295BE6E5001F310F /* ContentView.swift in Sources */,
 				45F59298295C1B9B00E30415 /* PracticeView.swift in Sources */,
 				45F5929A295C1BB700E30415 /* PracticeViewModel.swift in Sources */,
+				45F592A0295CF40500E30415 /* Date+WTV.swift in Sources */,
 				45F59291295C051700E30415 /* DailyView.swift in Sources */,
 				453E416D295BE6E5001F310F /* Wordle_Taylors_VersionApp.swift in Sources */,
 				45F59294295C05EF00E30415 /* WordleViewModelProtocol.swift in Sources */,

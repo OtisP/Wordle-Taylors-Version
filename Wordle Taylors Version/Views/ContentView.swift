@@ -11,13 +11,19 @@ struct ContentView: View {
     @ObservedObject var viewModel: ContentViewModel = ContentViewModel(songs: fetchSongs())
     @State private var wordleState: WordleState = .daily
 
+    @ObservedObject var dailyViewModel: DailyViewModel
+    @ObservedObject var practiceViewModel: PracticeViewModel
     var dailyView: DailyView
     var practiceView: PracticeView
 
     init() {
-        dailyView = DailyView(dailyViewModel: DailyViewModel())
-        practiceView = PracticeView(practiceViewModel: PracticeViewModel())
-
+        let dailyViewModel = DailyViewModel()
+        let practiceViewModel = PracticeViewModel()
+        dailyView = DailyView(dailyViewModel: dailyViewModel)
+        practiceView = PracticeView(practiceViewModel: practiceViewModel)
+        self.dailyViewModel = dailyViewModel
+        self.practiceViewModel = practiceViewModel
+    
         dailyView.dailyViewModel.getSong(songs: viewModel.songs)
         practiceView.practiceViewModel.getSong(songs: viewModel.songs)
     }
@@ -49,22 +55,40 @@ struct ContentView: View {
             case .daily:
                 dailyView
             case .practice:
-                practiceView
-            }
-
-            HStack {
-                Text("Album")
-                Picker(selection: $viewModel.selectedAlbum, label: Text("Select an album")) {
-                    ForEach(viewModel.albums, id: \.self) { state in
-                        Text(state)
+                if let wonGame = practiceViewModel.wonGameBool {
+                    if wonGame == true {
+                        Text("Winner yay")
+                            .foregroundColor(.green)
+                            .bold()
+                    } else if wonGame == false {
+                        Text("Loser Boo, the right answer was:")
+                            .foregroundColor(.red)
+                            .bold()
+                        Text((practiceViewModel.currentSong?.title ?? "") + " - " + (practiceViewModel.currentSong?.album ?? ""))
+                            .bold()
+                    }
+                    Button(action: { practiceViewModel.getSong(songs: viewModel.songs) }) {
+                        Text("Start New Game +")
                     }
                 }
+                practiceView
             }
-            HStack {
-                Text("Song")
-                Picker(selection: $viewModel.selectedSong, label: Text("Select a song")) {
-                    ForEach(viewModel.songAndAlbumDict[viewModel.selectedAlbum] ?? [], id: \.self) { city in
-                        Text(city)
+            
+            VStack(alignment: .leading) {
+                HStack {
+                    Text("Album")
+                    Picker(selection: $viewModel.selectedAlbum, label: Text("Select an album")) {
+                        ForEach(viewModel.albums, id: \.self) { state in
+                            Text(state)
+                        }
+                    }
+                }
+                HStack {
+                    Text("Song")
+                    Picker(selection: $viewModel.selectedSong, label: Text("Select a song")) {
+                        ForEach(viewModel.songAndAlbumDict[viewModel.selectedAlbum] ?? [], id: \.self) { city in
+                            Text(city)
+                        }
                     }
                 }
             }
@@ -73,9 +97,9 @@ struct ContentView: View {
             Button(action: {
                 switch wordleState {
                 case .daily:
-                    dailyView.dailyViewModel.submitGuess(selectedSong: viewModel.selectedSong, selectedAlbum: viewModel.selectedAlbum)
+                    dailyViewModel.submitGuess(selectedSong: viewModel.selectedSong, selectedAlbum: viewModel.selectedAlbum)
                 case .practice:
-                    practiceView.practiceViewModel.submitGuess(selectedSong: viewModel.selectedSong, selectedAlbum: viewModel.selectedAlbum)
+                    practiceViewModel.submitGuess(selectedSong: viewModel.selectedSong, selectedAlbum: viewModel.selectedAlbum)
                 }
             } ) {
                 Text("Submit")

@@ -8,13 +8,14 @@
 import Foundation
 import CSwiftV
 
-struct Song {
+struct Song: Hashable {
     let title: String
     let album: String
     let lyrics: [String]
 
     var displayLyrics: [SongLyricDisplay] {
-        let startIndex = Int.random(in: 0..<lyrics.count - 6)
+        srand48(Date().daysSince1970)
+        let startIndex = Int(floor((drand48() * Double(lyrics.count - 6))))
         let splicedLyrics = Array(lyrics[startIndex ..< startIndex + 6])
         var displayLyrics: [SongLyricDisplay] = []
         
@@ -86,5 +87,6 @@ func fetchSongs() -> [Song] {
     }
 
     let csv = CSwiftV.init(with: data)
+    // TODO: data needs serious cleaning
     return csv.rows.map { Song(title: $0[0], album: $0[1], lyrics: $0[2]) }
 }

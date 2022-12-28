@@ -18,7 +18,7 @@ protocol WordleViewModelProtocol: AnyObject {
     func revealSongLyric()
     func updateColor(_ guessidx: Int, selectedSong: String, selectedAlbum: String)
     func getSong(songs: [Song])
-    func correctGuessed()
+    func wonGame()
     func lostGame()
     
 }
@@ -29,7 +29,7 @@ extension WordleViewModelProtocol {
         updateColor(guessIndex - 1, selectedSong: selectedSong, selectedAlbum: selectedAlbum)
         // Check if the guess is correct
         if selectedSong.lowercased() == currentSong?.title.lowercased() {
-            correctGuessed()
+            wonGame()
         } else {
             // Incorrect guess reveal a lyric
             revealSongLyric()
