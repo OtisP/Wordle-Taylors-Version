@@ -14,6 +14,8 @@
 		453E417E295BE6E6001F310F /* Wordle_Taylors_VersionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453E417D295BE6E6001F310F /* Wordle_Taylors_VersionTests.swift */; };
 		453E4188295BE6E6001F310F /* Wordle_Taylors_VersionUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453E4187295BE6E6001F310F /* Wordle_Taylors_VersionUITests.swift */; };
 		453E418A295BE6E6001F310F /* Wordle_Taylors_VersionUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453E4189295BE6E6001F310F /* Wordle_Taylors_VersionUITestsLaunchTests.swift */; };
+		45F59288295BF5AA00E30415 /* Song.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F59286295BF5AA00E30415 /* Song.swift */; };
+		45F59289295BF5AA00E30415 /* ContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F59287295BF5AA00E30415 /* ContentViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +46,8 @@
 		453E4183295BE6E6001F310F /* Wordle Taylors VersionUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Wordle Taylors VersionUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		453E4187295BE6E6001F310F /* Wordle_Taylors_VersionUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wordle_Taylors_VersionUITests.swift; sourceTree = "<group>"; };
 		453E4189295BE6E6001F310F /* Wordle_Taylors_VersionUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wordle_Taylors_VersionUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		45F59286295BF5AA00E30415 /* Song.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Song.swift; sourceTree = "<group>"; };
+		45F59287295BF5AA00E30415 /* ContentViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +100,8 @@
 			children = (
 				453E416C295BE6E5001F310F /* Wordle_Taylors_VersionApp.swift */,
 				453E416E295BE6E5001F310F /* ContentView.swift */,
+				45F59287295BF5AA00E30415 /* ContentViewModel.swift */,
+				45F59286295BF5AA00E30415 /* Song.swift */,
 				453E4170295BE6E6001F310F /* Assets.xcassets */,
 				453E4172295BE6E6001F310F /* Preview Content */,
 			);
@@ -257,6 +263,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				45F59289295BF5AA00E30415 /* ContentViewModel.swift in Sources */,
+				45F59288295BF5AA00E30415 /* Song.swift in Sources */,
 				453E416F295BE6E5001F310F /* ContentView.swift in Sources */,
 				453E416D295BE6E5001F310F /* Wordle_Taylors_VersionApp.swift in Sources */,
 			);
