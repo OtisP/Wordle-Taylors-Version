@@ -5,6 +5,9 @@
 //  Created by Otis Peterson on 12/25/22.
 //
 
+import Foundation
+import CSwiftV
+
 struct Song {
     let title: String
     let album: String
@@ -65,4 +68,23 @@ class SongLyricDisplay: Identifiable {
     func flipShownProperty() {
         isShown = !isShown
     }
+}
+
+func fetchSongs() -> [Song] {
+    // locate the file you want to use
+    guard let filepath = Bundle.main.path(forResource: "songs", ofType: "csv") else {
+        return []
+    }
+
+    // convert that file into one long string
+    var data = ""
+    do {
+        data = try String(contentsOfFile: filepath)
+    } catch {
+        print(error)
+        return []
+    }
+
+    let csv = CSwiftV.init(with: data)
+    return csv.rows.map { Song(title: $0[0], album: $0[1], lyrics: $0[2]) }
 }

@@ -8,10 +8,19 @@
 import SwiftUI
 
 struct ContentView: View {
-    @ObservedObject var viewModel: ContentViewModel
+    @ObservedObject var viewModel: ContentViewModel = ContentViewModel(songs: fetchSongs())
+    // TODO I want to change these state vars to one state var that has an enum as its value so
+    // I can just switch on that
     @State private var isDailyActive = true
     @State private var isPracticeActive = false
     
+    var dailyView: DailyView
+    
+    init() {
+        dailyView = DailyView(dailyViewModel: DailyViewModel())
+        dailyView.dailyViewModel.getSong(songs: viewModel.songs)
+    }
+
     var body: some View {
         VStack {
             Text("Wordle (Taylor's Version)")
@@ -41,17 +50,8 @@ struct ContentView: View {
                 }
             }
 
-            ForEach(viewModel.songLyricsDisplayArray) { songLyricDisplay in
-                HStack {
-                    Spacer()
-                    Text(songLyricDisplay.isShown ? songLyricDisplay.lyric : "")
-                        .foregroundColor(.white)
-                        .padding()
-                    Spacer()
-                }
-                .background(viewModel.lyricColors[songLyricDisplay.index])
-                .frame(minWidth: 0, maxWidth: .infinity)
-                .padding(.horizontal)
+            if isDailyActive{
+                dailyView
             }
 
             HStack {
@@ -71,8 +71,9 @@ struct ContentView: View {
                 }
             }
 
+            // TODO: this will have to be a switch as well
             // Button to submit the guess
-            Button(action: viewModel.submitGuess) {
+            Button(action: { dailyView.dailyViewModel.submitGuess(selectedSong: viewModel.selectedSong, selectedAlbum: viewModel.selectedAlbum) } ) {
                 Text("Submit")
             }
         }
@@ -81,6 +82,6 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView(viewModel: ContentViewModel())
+        ContentView()
     }
 }
