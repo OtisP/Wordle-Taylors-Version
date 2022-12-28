@@ -13,7 +13,12 @@ struct Song {
     var displayLyrics: [SongLyricDisplay] {
         let startIndex = Int.random(in: 0..<lyrics.count - 6)
         let splicedLyrics = Array(lyrics[startIndex ..< startIndex + 6])
-        return splicedLyrics.map { SongLyricDisplay(lyric: $0, isShown: false) }
+        var displayLyrics: [SongLyricDisplay] = []
+        
+        for (index, lyric) in splicedLyrics.enumerated() {
+            displayLyrics.append(SongLyricDisplay(lyric: lyric, index: index, isShown: false))
+        }
+        return displayLyrics
     }
 
     init(title: String, album: String, lyrics: String) {
@@ -28,14 +33,16 @@ struct Song {
 
 class SongLyricDisplay: Identifiable {
     let lyric: String
+    let index: Int
     var isShown: Bool
 
     var isNotShown: Bool {
         return !isShown
     }
 
-    init(lyric: String, isShown: Bool) {
+    init(lyric: String, index: Int, isShown: Bool) {
         self.lyric = lyric
+        self.index = index
         self.isShown = isShown
     }
 

@@ -12,6 +12,7 @@ class ContentViewModel: ObservableObject {
     @Published var songs: [Song] = []
     @Published var currentSong: Song?
     @Published var songLyricsDisplayArray: [SongLyricDisplay] = []
+    @Published var lyricColors: [Color] = Array(repeating: Color.gray, count: 6)
 
     @Published var guess: String = ""
     @Published var selectedAlbum = ""
@@ -19,6 +20,7 @@ class ContentViewModel: ObservableObject {
 
     let albums: [String]
     var songAndAlbumDict: [String: [String]] = [:]
+    var guessIndex: Int = 0
 
     init() {
         let fetchedSongs = fetchSongs()
@@ -39,15 +41,17 @@ class ContentViewModel: ObservableObject {
     }
 
     func submitGuess() {
+        // update the color
+        updateColor(guessIndex - 1)
         // Check if the guess is correct
         if selectedSong.lowercased() == currentSong?.title.lowercased() {
             // Reveal the lyrics and reset the game after 3 seconds
             DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
                 self.getNewSong()
+                return
             }
         } else {
-            // Incorrect guess, reset the input field and reveal a lyric
-            guess = ""
+            // Incorrect guess reveal a lyric
             revealSongLyric()
         }
     }
@@ -55,19 +59,33 @@ class ContentViewModel: ObservableObject {
     func getNewSong() {
         currentSong = songs.randomElement()
         print(currentSong?.title ?? "")
-        let songLyricsDisplayArray = currentSong?.displayLyrics
-        guard let songLyricsDisplayArray = songLyricsDisplayArray else { return }
+        guard let songLyricsDisplayArray = currentSong?.displayLyrics else { return }
         self.songLyricsDisplayArray = songLyricsDisplayArray
+        guessIndex = 0
+        lyricColors = Array(repeating: Color.gray, count: 6)
+        
         revealSongLyric()
     }
 
     func revealSongLyric() {
-        for songLyricsDisplay in songLyricsDisplayArray where songLyricsDisplay.isNotShown {
-            songLyricsDisplay.flipShownProperty()
+        if guessIndex >= songLyricsDisplayArray.count {
+            // Reveal the song lyric because they are out of guesses
+            getNewSong()
             return
         }
-        // Reveal the song lyric because they are out of guesses
-        getNewSong()
+
+        songLyricsDisplayArray[guessIndex].flipShownProperty()
+        guessIndex += 1
+    }
+    
+    func updateColor(_ guessidx: Int) {
+        if selectedAlbum == currentSong?.album && selectedSong == currentSong?.title {
+            lyricColors[guessidx] = Color.green
+        } else if selectedAlbum == currentSong?.album {
+            lyricColors[guessidx] = Color.orange
+        } else {
+            lyricColors[guessidx] = Color.red
+        }
     }
 
 }

@@ -9,9 +9,38 @@ import SwiftUI
 
 struct ContentView: View {
     @ObservedObject var viewModel: ContentViewModel
-
+    @State private var isDailyActive = true
+    @State private var isPracticeActive = false
+    
     var body: some View {
         VStack {
+            Text("Wordle (Taylor's Version)")
+                .font(.headline)
+            
+            HStack {
+                Button(action: {
+                    self.isDailyActive = true
+                    self.isPracticeActive = false
+                }) {
+                    Text("Daily")
+                        .foregroundColor(self.isDailyActive ? .white : .black)
+                        .padding(10)
+                        .background(self.isDailyActive ? Color.blue : Color.gray)
+                        .cornerRadius(10)
+                }
+
+                Button(action: {
+                    self.isPracticeActive = true
+                    self.isDailyActive = false
+                }) {
+                    Text("Practice")
+                        .foregroundColor(self.isPracticeActive ? .white : .black)
+                        .padding(10)
+                        .background(self.isPracticeActive ? Color.blue : Color.gray)
+                        .cornerRadius(10)
+                }
+            }
+
             ForEach(viewModel.songLyricsDisplayArray) { songLyricDisplay in
                 HStack {
                     Spacer()
@@ -20,8 +49,9 @@ struct ContentView: View {
                         .padding()
                     Spacer()
                 }
-                .background(Color.gray)
+                .background(viewModel.lyricColors[songLyricDisplay.index])
                 .frame(minWidth: 0, maxWidth: .infinity)
+                .padding(.horizontal)
             }
 
             HStack {
