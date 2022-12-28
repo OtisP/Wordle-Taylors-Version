@@ -9,6 +9,7 @@ import SwiftUI
 import CSwiftV
 
 class ContentViewModel: ObservableObject {
+    // TODO: album and song init shouldn't be empty string
     @Published var selectedAlbum = ""
     @Published var selectedSong = ""
     var songAndAlbumDict: [String : [String]] = [:]

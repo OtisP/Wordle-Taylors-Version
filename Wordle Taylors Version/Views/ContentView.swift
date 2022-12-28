@@ -9,16 +9,17 @@ import SwiftUI
 
 struct ContentView: View {
     @ObservedObject var viewModel: ContentViewModel = ContentViewModel(songs: fetchSongs())
-    // TODO I want to change these state vars to one state var that has an enum as its value so
-    // I can just switch on that
-    @State private var isDailyActive = true
-    @State private var isPracticeActive = false
-    
+    @State private var wordleState: WordleState = .daily
+
     var dailyView: DailyView
-    
+    var practiceView: PracticeView
+
     init() {
         dailyView = DailyView(dailyViewModel: DailyViewModel())
+        practiceView = PracticeView(practiceViewModel: PracticeViewModel())
+
         dailyView.dailyViewModel.getSong(songs: viewModel.songs)
+        practiceView.practiceViewModel.getSong(songs: viewModel.songs)
     }
 
     var body: some View {
@@ -27,31 +28,28 @@ struct ContentView: View {
                 .font(.headline)
             
             HStack {
-                Button(action: {
-                    self.isDailyActive = true
-                    self.isPracticeActive = false
-                }) {
+                Button(action: { self.wordleState = .daily }) {
                     Text("Daily")
-                        .foregroundColor(self.isDailyActive ? .white : .black)
+                        .foregroundColor(self.wordleState == .daily ? .white : .black)
                         .padding(10)
-                        .background(self.isDailyActive ? Color.blue : Color.gray)
+                        .background(self.wordleState == .daily ? Color.blue : Color.gray)
                         .cornerRadius(10)
                 }
 
-                Button(action: {
-                    self.isPracticeActive = true
-                    self.isDailyActive = false
-                }) {
+                Button(action: { self.wordleState = .practice }) {
                     Text("Practice")
-                        .foregroundColor(self.isPracticeActive ? .white : .black)
+                        .foregroundColor(self.wordleState == .practice ? .white : .black)
                         .padding(10)
-                        .background(self.isPracticeActive ? Color.blue : Color.gray)
+                        .background(self.wordleState == .practice ? Color.blue : Color.gray)
                         .cornerRadius(10)
                 }
             }
 
-            if isDailyActive{
+            switch wordleState {
+            case .daily:
                 dailyView
+            case .practice:
+                practiceView
             }
 
             HStack {
@@ -71,9 +69,15 @@ struct ContentView: View {
                 }
             }
 
-            // TODO: this will have to be a switch as well
             // Button to submit the guess
-            Button(action: { dailyView.dailyViewModel.submitGuess(selectedSong: viewModel.selectedSong, selectedAlbum: viewModel.selectedAlbum) } ) {
+            Button(action: {
+                switch wordleState {
+                case .daily:
+                    dailyView.dailyViewModel.submitGuess(selectedSong: viewModel.selectedSong, selectedAlbum: viewModel.selectedAlbum)
+                case .practice:
+                    practiceView.practiceViewModel.submitGuess(selectedSong: viewModel.selectedSong, selectedAlbum: viewModel.selectedAlbum)
+                }
+            } ) {
                 Text("Submit")
             }
         }
