@@ -21,6 +21,7 @@ struct DailyView: View {
             }
             .background(dailyViewModel.lyricColors[songLyricDisplay.index])
             .frame(minWidth: 0, maxWidth: .infinity)
+            .cornerRadius(5)
             .padding(.horizontal)
         }
     }

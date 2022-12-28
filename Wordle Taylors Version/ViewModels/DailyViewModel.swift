@@ -13,6 +13,7 @@ class DailyViewModel: WordleViewModelProtocol, ObservableObject {
     @Published var songLyricsDisplayArray: [SongLyricDisplay] = []
     @Published var lyricColors: [Color] = Array(repeating: Color.gray, count: 6)
     @Published var guessIndex: Int = 0
+    @Published var wonGameBool: Bool?
 
     func getSong(songs: [Song]) {
         // Get the current date and use it to seed the random number generator
@@ -25,6 +26,7 @@ class DailyViewModel: WordleViewModelProtocol, ObservableObject {
         guard let songLyricsDisplayArray = currentSong?.displayLyrics else { return }
         self.songLyricsDisplayArray = songLyricsDisplayArray
         guessIndex = 0
+        wonGameBool = nil
         lyricColors = Array(repeating: Color.gray, count: 6)
         
         revealSongLyric()
@@ -32,11 +34,13 @@ class DailyViewModel: WordleViewModelProtocol, ObservableObject {
     
     func wonGame() {
         // TODO
+        wonGameBool = true
         print("yay")
     }
     
     func lostGame() {
         // TODO
+        wonGameBool = false
         print("boo")
     }
 }

@@ -13,6 +13,7 @@ protocol WordleViewModelProtocol: AnyObject {
     var songLyricsDisplayArray: [SongLyricDisplay] { get set }
     var lyricColors: [Color] { get set }
     var guessIndex: Int { get set }
+    var wonGameBool: Bool? { get set }
 
     func submitGuess(selectedSong: String, selectedAlbum: String)
     func revealSongLyric()

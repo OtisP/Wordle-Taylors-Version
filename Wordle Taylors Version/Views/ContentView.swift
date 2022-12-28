@@ -53,6 +53,20 @@ struct ContentView: View {
 
             switch wordleState {
             case .daily:
+                // TODO: DRY this
+                if let wonGame = dailyViewModel.wonGameBool {
+                    if wonGame == true {
+                        Text("Winner yay")
+                            .foregroundColor(.green)
+                            .bold()
+                    } else if wonGame == false {
+                        Text("Loser Boo, the right answer was:")
+                            .foregroundColor(.red)
+                            .bold()
+                        Text((dailyViewModel.currentSong?.title ?? "") + " - " + (dailyViewModel.currentSong?.album ?? ""))
+                            .bold()
+                    }
+                }
                 dailyView
             case .practice:
                 if let wonGame = practiceViewModel.wonGameBool {
