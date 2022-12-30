@@ -49,7 +49,7 @@
 /* Begin PBXFileReference section */
 		01A50642DF0A3F916600AE04F8E9B959 /* Pods-Wordle Taylors Version-Wordle Taylors VersionUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Wordle Taylors Version-Wordle Taylors VersionUITests.release.xcconfig"; sourceTree = "<group>"; };
 		0F2A7267C22B8160D2EDD6292A352454 /* Pods-Wordle Taylors Version */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-Wordle Taylors Version"; path = Pods_Wordle_Taylors_Version.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		1051FF5629F3798747D5C7B829075C59 /* CSwiftV */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = CSwiftV; path = CSwiftV.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1051FF5629F3798747D5C7B829075C59 /* CSwiftV.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CSwiftV.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		147B87A3D81411EB3BAF3E534678A1AD /* Pods-Wordle Taylors VersionTests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Wordle Taylors VersionTests-Info.plist"; sourceTree = "<group>"; };
 		1AB5B2822827423E95CF3014442DBBB5 /* CSwiftV.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = CSwiftV.release.xcconfig; sourceTree = "<group>"; };
 		1E704005F1EB5486B13052F268F47A3C /* Pods-Wordle Taylors VersionTests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Wordle Taylors VersionTests-acknowledgements.plist"; sourceTree = "<group>"; };
@@ -70,7 +70,7 @@
 		92EAA3128BCC09484F9973CA64EC4D0C /* CSwiftV-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "CSwiftV-umbrella.h"; sourceTree = "<group>"; };
 		97AC4CF68BE9EC895D2F30D21A0A3A75 /* Pods-Wordle Taylors Version-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Wordle Taylors Version-Info.plist"; sourceTree = "<group>"; };
 		9A1537C0F334E4771E9E4E66F40399C1 /* Pods-Wordle Taylors Version-Wordle Taylors VersionUITests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Wordle Taylors Version-Wordle Taylors VersionUITests-acknowledgements.plist"; sourceTree = "<group>"; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		9E2AC2AB618C612CA2AF0750A2A21F20 /* CSwiftV.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CSwiftV.swift; path = Sources/CSwiftV.swift; sourceTree = "<group>"; };
 		9E92DADE933A7C4ADB602C31EB70CBCA /* Pods-Wordle Taylors Version.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Wordle Taylors Version.debug.xcconfig"; sourceTree = "<group>"; };
 		A173CC492BE5BF144B62CECD7164F355 /* Pods-Wordle Taylors Version-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Wordle Taylors Version-acknowledgements.plist"; sourceTree = "<group>"; };
@@ -128,7 +128,7 @@
 		0E5390659B925C5CBC850CF06940FBA6 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				1051FF5629F3798747D5C7B829075C59 /* CSwiftV */,
+				1051FF5629F3798747D5C7B829075C59 /* CSwiftV.framework */,
 				0F2A7267C22B8160D2EDD6292A352454 /* Pods-Wordle Taylors Version */,
 				5A71C9B5D7EC7140CC0B30005FD982D9 /* Pods-Wordle Taylors Version-Wordle Taylors VersionUITests */,
 				E26EBAAF7AE7EE850B85DB46350A055A /* Pods-Wordle Taylors VersionTests */,
@@ -159,7 +159,6 @@
 				9E2AC2AB618C612CA2AF0750A2A21F20 /* CSwiftV.swift */,
 				BA61DCF1E106A0D587A9B50BE20147CB /* Support Files */,
 			);
-			name = CSwiftV;
 			path = CSwiftV;
 			sourceTree = "<group>";
 		};
@@ -347,7 +346,7 @@
 			);
 			name = CSwiftV;
 			productName = CSwiftV;
-			productReference = 1051FF5629F3798747D5C7B829075C59 /* CSwiftV */;
+			productReference = 1051FF5629F3798747D5C7B829075C59 /* CSwiftV.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		C6FFFBDADD5E99B87D4BDDC033B56EE8 /* Pods-Wordle Taylors Version-Wordle Taylors VersionUITests */ = {
@@ -376,7 +375,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1300;
-				LastUpgradeCheck = 1300;
+				LastUpgradeCheck = 1420;
 			};
 			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 14.0";
@@ -541,7 +540,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/CSwiftV/CSwiftV-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/CSwiftV/CSwiftV-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -671,6 +670,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -689,7 +689,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -717,7 +717,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/CSwiftV/CSwiftV-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/CSwiftV/CSwiftV-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -809,6 +809,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -824,7 +825,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
