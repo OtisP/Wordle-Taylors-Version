@@ -11,4 +11,16 @@ extension Date {
     var daysSince1970: Int {
         return Int(self.timeIntervalSince1970 / 86400)
     }
+
+    var customDateInt: Int {
+        let calendar = Calendar.current
+        let day = calendar.component(.day, from: self)
+        let month = calendar.component(.month, from: self)
+        let year = calendar.component(.year, from: self)
+
+        let customInt = String(day) + String(month) + String(year)
+        guard let int = Int(customInt) else { return 0 }
+        return int
+    }
+
 }

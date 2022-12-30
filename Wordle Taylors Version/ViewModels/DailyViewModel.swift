@@ -18,8 +18,7 @@ class DailyViewModel: WordleViewModelProtocol, ObservableObject {
     func getSong(songs: [Song]) {
         // Get the current date and use it to seed the random number generator
         // seeding turned out to be messier than I wanted here
-        // TODO: ideally this would reset during a US time zone midnight
-        srand48(Date().daysSince1970)
+        srand48(Date().customDateInt)
         let index = Int(floor((drand48() * Double(songs.count))))
         currentSong = songs[index]
         print(currentSong?.title ?? "")
