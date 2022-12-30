@@ -16,6 +16,7 @@
 		453E417E295BE6E6001F310F /* Wordle_Taylors_VersionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453E417D295BE6E6001F310F /* Wordle_Taylors_VersionTests.swift */; };
 		453E4188295BE6E6001F310F /* Wordle_Taylors_VersionUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453E4187295BE6E6001F310F /* Wordle_Taylors_VersionUITests.swift */; };
 		453E418A295BE6E6001F310F /* Wordle_Taylors_VersionUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453E4189295BE6E6001F310F /* Wordle_Taylors_VersionUITestsLaunchTests.swift */; };
+		45D93838295F50D900183A8F /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 45D93837295F50D900183A8F /* Colors.xcassets */; };
 		45F59288295BF5AA00E30415 /* Song.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F59286295BF5AA00E30415 /* Song.swift */; };
 		45F59289295BF5AA00E30415 /* ContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F59287295BF5AA00E30415 /* ContentViewModel.swift */; };
 		45F5928D295BF7A500E30415 /* songs.csv in Resources */ = {isa = PBXBuildFile; fileRef = 45F5928B295BF7A500E30415 /* songs.csv */; };
@@ -64,6 +65,7 @@
 		453E4187295BE6E6001F310F /* Wordle_Taylors_VersionUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wordle_Taylors_VersionUITests.swift; sourceTree = "<group>"; };
 		453E4189295BE6E6001F310F /* Wordle_Taylors_VersionUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wordle_Taylors_VersionUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		455BE736BA673366457EE20C /* Pods-Wordle Taylors VersionTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Wordle Taylors VersionTests.release.xcconfig"; path = "Target Support Files/Pods-Wordle Taylors VersionTests/Pods-Wordle Taylors VersionTests.release.xcconfig"; sourceTree = "<group>"; };
+		45D93837295F50D900183A8F /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		45F59286295BF5AA00E30415 /* Song.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Song.swift; sourceTree = "<group>"; };
 		45F59287295BF5AA00E30415 /* ContentViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentViewModel.swift; sourceTree = "<group>"; };
 		45F5928B295BF7A500E30415 /* songs.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = songs.csv; sourceTree = "<group>"; };
@@ -144,7 +146,7 @@
 				45F5928A295BF7A500E30415 /* SongInfo */,
 				453E416C295BE6E5001F310F /* Wordle_Taylors_VersionApp.swift */,
 				45F5929F295CF40500E30415 /* Date+WTV.swift */,
-				453E4170295BE6E6001F310F /* Assets.xcassets */,
+				45D93839295F5AA300183A8F /* Assets */,
 				45F592A1295D108E00E30415 /* Charlotte.ttf */,
 				453E4172295BE6E6001F310F /* Preview Content */,
 				45F5929B295CBF3200E30415 /* WordleState.swift */,
@@ -175,6 +177,15 @@
 				453E4189295BE6E6001F310F /* Wordle_Taylors_VersionUITestsLaunchTests.swift */,
 			);
 			path = "Wordle Taylors VersionUITests";
+			sourceTree = "<group>";
+		};
+		45D93839295F5AA300183A8F /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				45D93837295F50D900183A8F /* Colors.xcassets */,
+				453E4170295BE6E6001F310F /* Assets.xcassets */,
+			);
+			path = Assets;
 			sourceTree = "<group>";
 		};
 		45F5928A295BF7A500E30415 /* SongInfo */ = {
@@ -344,6 +355,7 @@
 				45F5928E295BF7A500E30415 /* song_titles.txt in Resources */,
 				453E4174295BE6E6001F310F /* Preview Assets.xcassets in Resources */,
 				45F592A3295D120900E30415 /* Charlotte.ttf in Resources */,
+				45D93838295F50D900183A8F /* Colors.xcassets in Resources */,
 				45F5928D295BF7A500E30415 /* songs.csv in Resources */,
 				453E4171295BE6E6001F310F /* Assets.xcassets in Resources */,
 			);

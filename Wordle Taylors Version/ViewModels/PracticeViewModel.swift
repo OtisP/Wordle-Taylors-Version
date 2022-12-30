@@ -9,9 +9,10 @@ import Foundation
 import SwiftUI
 
 class PracticeViewModel: WordleViewModelProtocol, ObservableObject {
+    
     @Published var currentSong: Song?
     @Published var songLyricsDisplayArray: [SongLyricDisplay] = []
-    @Published var lyricColors: [Color] = Array(repeating: Color.gray, count: 6)
+    @Published var lyricColorsStrings: [String] = Array(repeating: "gray", count: 6)
     @Published var guessIndex: Int = 0
     
     @Published var wonGameBool: Bool? = nil
@@ -23,7 +24,7 @@ class PracticeViewModel: WordleViewModelProtocol, ObservableObject {
         self.songLyricsDisplayArray = songLyricsDisplayArray
         guessIndex = 0
         wonGameBool = nil
-        lyricColors = Array(repeating: Color.gray, count: 6)
+        lyricColorsStrings = Array(repeating: "gray", count: 6)
         
         revealSongLyric()
     }

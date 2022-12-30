@@ -12,9 +12,11 @@ import SwiftUI
 protocol WordleViewModelProtocol: AnyObject {
     var currentSong: Song? { get set }
     var songLyricsDisplayArray: [SongLyricDisplay] { get set }
-    var lyricColors: [Color] { get set }
+    var lyricColorsStrings: [String] { get set }
     var guessIndex: Int { get set }
     var wonGameBool: Bool? { get set }
+    
+    var lyricColors: [Color] { get }
 
     /// The way that songs are gotten at the start/for a new game
     func getSong(songs: [Song])
@@ -26,6 +28,10 @@ protocol WordleViewModelProtocol: AnyObject {
 }
 
 extension WordleViewModelProtocol {
+    var lyricColors: [Color] {
+        lyricColorsStrings.map { Color($0) }
+    }
+
     func submitGuess(selectedSong: String, selectedAlbum: String) {
         // update the color
         updateColor(guessIndex - 1, selectedSong: selectedSong, selectedAlbum: selectedAlbum)
@@ -50,11 +56,11 @@ extension WordleViewModelProtocol {
 
     func updateColor(_ guessidx: Int, selectedSong: String, selectedAlbum: String) {
         if selectedAlbum == currentSong?.album && selectedSong == currentSong?.title {
-            lyricColors[guessidx] = Color.green
+            lyricColorsStrings[guessidx] = "green"
         } else if selectedAlbum == currentSong?.album {
-            lyricColors[guessidx] = Color.orange
+            lyricColorsStrings[guessidx] = "orange"
         } else {
-            lyricColors[guessidx] = Color.red
+            lyricColorsStrings[guessidx] = "red"
         }
     }
     

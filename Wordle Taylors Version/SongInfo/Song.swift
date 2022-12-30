@@ -8,7 +8,7 @@
 import Foundation
 import CSwiftV
 
-struct Song: Hashable {
+struct Song: Codable, Hashable {
     let title: String
     let album: String
     let lyrics: [String]
@@ -35,7 +35,7 @@ struct Song: Hashable {
 
 }
 
-class SongLyricDisplay: Identifiable {
+class SongLyricDisplay: Codable, Identifiable {
     let lyric: String
     let index: Int
     var isShown: Bool
@@ -44,26 +44,14 @@ class SongLyricDisplay: Identifiable {
         return !isShown
     }
 
-    init(lyric: String, index: Int, isShown: Bool) {
-        self.lyric = lyric
-        self.index = index
-        self.isShown = isShown
-    }
-
     var lyricLen: Int {
         return lyric.count
     }
 
-    var hiddenLyric: String {
-        var result = ""
-        for character in lyric {
-            if character.isLetter {
-                result += "-"
-            } else {
-                result += String(character)
-            }
-        }
-        return result
+    init(lyric: String, index: Int, isShown: Bool) {
+        self.lyric = lyric
+        self.index = index
+        self.isShown = isShown
     }
 
     func flipShownProperty() {
@@ -72,7 +60,7 @@ class SongLyricDisplay: Identifiable {
 }
 
 func fetchSongs() -> [Song] {
-    // locate the file you want to use
+    // locate the file to use
     guard let filepath = Bundle.main.path(forResource: "songs", ofType: "csv") else {
         return []
     }

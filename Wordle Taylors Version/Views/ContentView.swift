@@ -17,14 +17,26 @@ struct ContentView: View {
     var practiceView: PracticeView
 
     init() {
-        let dailyViewModel = DailyViewModel()
-        let practiceViewModel = PracticeViewModel()
+        // If there is state saved in the DailyViewModel then load it
+        var dailyViewModel: DailyViewModel
+        let decoder = JSONDecoder()
+        if let savedDailyViewModel = UserDefaults.standard.object(forKey: "dailyViewModel") as? Data,
+           let unwrappedDailyViewModel = try? decoder.decode(DailyViewModel.self, from: savedDailyViewModel) {
+            dailyViewModel = unwrappedDailyViewModel
+        } else {
+            dailyViewModel = DailyViewModel()
+        }
         dailyView = DailyView(dailyViewModel: dailyViewModel)
-        practiceView = PracticeView(practiceViewModel: practiceViewModel)
         self.dailyViewModel = dailyViewModel
+        
+        let practiceViewModel = PracticeViewModel()
+        practiceView = PracticeView(practiceViewModel: practiceViewModel)
         self.practiceViewModel = practiceViewModel
-        dailyView.dailyViewModel.getSong(songs: viewModel.songs)
+        
         practiceView.practiceViewModel.getSong(songs: viewModel.songs)
+        if dailyViewModel.currentSong == nil {
+            dailyView.dailyViewModel.getSong(songs: viewModel.songs)
+        }
     }
 
     var body: some View {
@@ -156,6 +168,11 @@ struct ContentView: View {
                     switch wordleState {
                     case .daily:
                         dailyViewModel.submitGuess(selectedSong: viewModel.selectedSong, selectedAlbum: viewModel.selectedAlbum)
+                        let encoder = JSONEncoder()
+                        if let encoded = try? encoder.encode(dailyViewModel) {
+                            let defaults = UserDefaults.standard
+                            defaults.set(encoded, forKey: "dailyViewModel")
+                        }
                     case .practice:
                         practiceViewModel.submitGuess(selectedSong: viewModel.selectedSong, selectedAlbum: viewModel.selectedAlbum)
                     }
