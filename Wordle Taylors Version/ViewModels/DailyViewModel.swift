@@ -32,7 +32,7 @@ final class DailyViewModel: WordleViewModelProtocol, Codable, ObservableObject {
         
         if currentSong != currentDaySong {
             currentSong = currentDaySong
-            guard let songLyricsDisplayArray = currentSong?.displayLyrics else { return }
+            guard let songLyricsDisplayArray = currentSong?.getdisplayLyrics(isSeeded: true) else { return }
             self.songLyricsDisplayArray = songLyricsDisplayArray
             guessIndex = 0
             wonGameBool = nil
@@ -49,7 +49,6 @@ final class DailyViewModel: WordleViewModelProtocol, Codable, ObservableObject {
     
     func lostGame() {
         // TODO: this and won game should have a counter that keeps track of scores
-        // also there should be a countdown till the next one is dropped
         wonGameBool = false
     }
     

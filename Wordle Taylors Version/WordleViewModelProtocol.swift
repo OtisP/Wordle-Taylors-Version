@@ -8,6 +8,11 @@
 import Foundation
 import SwiftUI
 
+enum WordleState {
+    case daily
+    case practice
+}
+
 // What every lyric display viewModel should have the ability to do
 protocol WordleViewModelProtocol: AnyObject {
     var currentSong: Song? { get set }

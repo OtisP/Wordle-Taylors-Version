@@ -13,14 +13,24 @@ struct Song: Codable, Hashable {
     let album: String
     let lyrics: [String]
 
-    var displayLyrics: [SongLyricDisplay] {
-        srand48(Date().daysSince1970)
-        let startIndex = Int(floor((drand48() * Double(lyrics.count - 6))))
-        let splicedLyrics = Array(lyrics[startIndex ..< startIndex + 6])
+    func getdisplayLyrics(isSeeded: Bool) -> [SongLyricDisplay] {
+        var isValidLyrics = false
+        if isSeeded {
+            srand48(Date().daysSince1970)
+        }
         var displayLyrics: [SongLyricDisplay] = []
-        
-        for (index, lyric) in splicedLyrics.enumerated() {
-            displayLyrics.append(SongLyricDisplay(lyric: lyric, index: index, isShown: false))
+        while !isValidLyrics {
+            isValidLyrics = true
+            displayLyrics = []
+            let startIndex = Int(floor((drand48() * Double(lyrics.count - 6))))
+            let splicedLyrics = Array(lyrics[startIndex ..< startIndex + 6])
+            
+            for (index, lyric) in splicedLyrics.enumerated() {
+                if lyric.before(first: "(").lowercased().contains(self.title.lowercased()) {
+                    isValidLyrics = false
+                }
+                displayLyrics.append(SongLyricDisplay(lyric: lyric, index: index, isShown: false))
+            }
         }
         return displayLyrics
     }
@@ -75,6 +85,5 @@ func fetchSongs() -> [Song] {
     }
 
     let csv = CSwiftV.init(with: data)
-    // TODO: data needs serious cleaning
     return csv.rows.map { Song(title: $0[0], album: $0[1], lyrics: $0[2]) }
 }
