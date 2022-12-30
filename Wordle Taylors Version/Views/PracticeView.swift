@@ -11,18 +11,22 @@ struct PracticeView: View {
     @ObservedObject var practiceViewModel: PracticeViewModel
     
     var body: some View {
-        ForEach(practiceViewModel.songLyricsDisplayArray) { songLyricDisplay in
-            HStack {
-                Spacer()
-                Text(songLyricDisplay.isShown ? songLyricDisplay.lyric : "")
-                    .foregroundColor(.white)
-                    .padding()
-                Spacer()
+        VStack(spacing: 2) {
+            ForEach(practiceViewModel.songLyricsDisplayArray) { songLyricDisplay in
+                HStack {
+                    Spacer()
+                    Text(songLyricDisplay.lyric)
+                        .opacity(songLyricDisplay.isShown ? 1.0 : 0.0)
+                        .minimumScaleFactor(0.5)
+                        .foregroundColor(.black)
+                        .padding()
+                    Spacer()
+                }
+                .background(practiceViewModel.lyricColors[songLyricDisplay.index])
+                .frame(minHeight: 55)
+                .cornerRadius(10)
+                .padding(.horizontal)
             }
-            .background(practiceViewModel.lyricColors[songLyricDisplay.index])
-            .frame(minWidth: 0, maxWidth: .infinity)
-            .cornerRadius(5)
-            .padding(.horizontal)
         }
     }
 }

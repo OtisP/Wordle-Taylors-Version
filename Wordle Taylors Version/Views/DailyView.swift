@@ -11,18 +11,22 @@ struct DailyView: View {
     @ObservedObject var dailyViewModel: DailyViewModel
     
     var body: some View {
-        ForEach(dailyViewModel.songLyricsDisplayArray) { songLyricDisplay in
-            HStack {
-                Spacer()
-                Text(songLyricDisplay.isShown ? songLyricDisplay.lyric : "")
-                    .foregroundColor(.white)
-                    .padding()
-                Spacer()
+        VStack(spacing: 2) {
+            ForEach(dailyViewModel.songLyricsDisplayArray) { songLyricDisplay in
+                HStack {
+                    Spacer()
+                    Text(songLyricDisplay.lyric)
+                        .opacity(songLyricDisplay.isShown ? 1.0 : 0.0)
+                        .minimumScaleFactor(0.5)
+                        .foregroundColor(.black)
+                        .padding()
+                    Spacer()
+                }
+                .background(dailyViewModel.lyricColors[songLyricDisplay.index])
+                .frame(minHeight: 55)
+                .cornerRadius(10)
+                .padding(.horizontal)
             }
-            .background(dailyViewModel.lyricColors[songLyricDisplay.index])
-            .frame(minWidth: 0, maxWidth: .infinity)
-            .cornerRadius(5)
-            .padding(.horizontal)
         }
     }
 }
