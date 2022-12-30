@@ -22,5 +22,23 @@ extension Date {
         guard let int = Int(customInt) else { return 0 }
         return int
     }
+    
+    static var secondsTilMidnight: Int {
+        let currentDate = Date()
+        let calendar = Calendar.current
+        let midnight = calendar.startOfDay(for: currentDate) + 86400
+        return Int(midnight.timeIntervalSince(currentDate))
+    }
 
+}
+
+extension Int {
+    var secondsToTimeDisplay: String {
+        let hour = Int(self) / 3600
+        let minute = Int(self) / 60 % 60
+        let second = Int(self) % 60
+
+        // return formated string
+        return String(format: "%02i:%02i:%02i", hour, minute, second)
+    }
 }

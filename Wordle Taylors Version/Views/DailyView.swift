@@ -9,6 +9,7 @@ import SwiftUI
 
 struct DailyView: View {
     @ObservedObject var dailyViewModel: DailyViewModel
+    let songs: [Song]
 
     var body: some View {
         VStack {
@@ -28,7 +29,22 @@ struct DailyView: View {
                     )
                     .bold()
                 }
-                //TODO: a countdown to next wordle should be here
+                // guard var secondsTilMidnight else { self.secondsTilMidnight = Date.secondsTilMidnight - timerCount }
+                if var secondsTilMidnight = dailyViewModel.secondsTilMidnight {
+                    Text("\(secondsTilMidnight.secondsToTimeDisplay) till next Wordle (TV)")
+                        .foregroundColor(.black)
+                        .onReceive(dailyViewModel.timer) { _ in
+                            dailyViewModel.secondsTilMidnight = Date.secondsTilMidnight - dailyViewModel.timerCount
+                            if secondsTilMidnight < 1 {
+                                dailyViewModel.getSong(songs: songs)
+                            }
+                        }
+                } else {
+                    Text("")
+                        .onReceive(dailyViewModel.timer) { _ in
+                            dailyViewModel.secondsTilMidnight = Date.secondsTilMidnight - dailyViewModel.timerCount
+                        }
+                }
             }
             VStack(spacing: ViewConstants.wordleVStackSpacing) {
                 ForEach(dailyViewModel.songLyricsDisplayArray) { songLyricDisplay in

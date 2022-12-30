@@ -45,7 +45,7 @@ class ContentViewModel: ObservableObject {
         } else {
             dailyViewModel = DailyViewModel()
         }
-        dailyView = DailyView(dailyViewModel: dailyViewModel)
+        dailyView = DailyView(dailyViewModel: dailyViewModel, songs: songs)
         self.dailyViewModel = dailyViewModel
         dailyView.dailyViewModel.getSong(songs: songs)
 
@@ -66,7 +66,7 @@ class ContentViewModel: ObservableObject {
             let encoder = JSONEncoder()
             if let encoded = try? encoder.encode(dailyViewModel) {
                 let defaults = UserDefaults.standard
-                defaults.set(encoded, forKey: "viewModel.dailyViewModel")
+                defaults.set(encoded, forKey: "dailyViewModel")
             }
         case .practice:
             practiceViewModel.submitGuess(selectedSong: selectedSong, selectedAlbum: selectedAlbum)

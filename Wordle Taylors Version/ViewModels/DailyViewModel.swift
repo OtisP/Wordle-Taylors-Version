@@ -15,6 +15,11 @@ final class DailyViewModel: WordleViewModelProtocol, Codable, ObservableObject {
     @Published var guessIndex: Int = 0
     @Published var wonGameBool: Bool?
 
+    // Countdown timer
+    let timer = Timer.publish(every: 1, on: .current, in: .common).autoconnect()
+    @Published var timerCount = 0
+    @Published var secondsTilMidnight: Int?
+
     init() { }
 
     func getSong(songs: [Song]) {
