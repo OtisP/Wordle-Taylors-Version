@@ -47,9 +47,7 @@ class ContentViewModel: ObservableObject {
         }
         dailyView = DailyView(dailyViewModel: dailyViewModel)
         self.dailyViewModel = dailyViewModel
-        if dailyViewModel.currentSong == nil {
-            dailyView.dailyViewModel.getSong(songs: songs)
-        }
+        dailyView.dailyViewModel.getSong(songs: songs)
 
         // MARK: PracticeView
         let practiceViewModel = PracticeViewModel(songs: songs)

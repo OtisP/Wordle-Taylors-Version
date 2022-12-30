@@ -22,16 +22,19 @@ final class DailyViewModel: WordleViewModelProtocol, Codable, ObservableObject {
         // seeding turned out to be messier than I wanted here
         srand48(Date().customDateInt)
         let index = Int(floor((drand48() * Double(songs.count))))
-        currentSong = songs[index]
-        print(currentSong?.title ?? "")
+        let currentDaySong = songs[index]
+        print(currentDaySong.title)
         
-        guard let songLyricsDisplayArray = currentSong?.displayLyrics else { return }
-        self.songLyricsDisplayArray = songLyricsDisplayArray
-        guessIndex = 0
-        wonGameBool = nil
-        lyricColorsStrings = Array(repeating: "gray", count: 6)
-        
-        revealSongLyric()
+        if currentSong != currentDaySong {
+            currentSong = currentDaySong
+            guard let songLyricsDisplayArray = currentSong?.displayLyrics else { return }
+            self.songLyricsDisplayArray = songLyricsDisplayArray
+            guessIndex = 0
+            wonGameBool = nil
+            lyricColorsStrings = Array(repeating: "gray", count: 6)
+            
+            revealSongLyric()
+        }
     }
     
     func wonGame() {

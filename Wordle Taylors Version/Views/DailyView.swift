@@ -28,6 +28,7 @@ struct DailyView: View {
                     )
                     .bold()
                 }
+                //TODO: a countdown to next wordle should be here
             }
             VStack(spacing: ViewConstants.wordleVStackSpacing) {
                 ForEach(dailyViewModel.songLyricsDisplayArray) { songLyricDisplay in
