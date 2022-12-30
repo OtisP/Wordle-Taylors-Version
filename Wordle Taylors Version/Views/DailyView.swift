@@ -11,20 +11,20 @@ struct DailyView: View {
     @ObservedObject var dailyViewModel: DailyViewModel
     
     var body: some View {
-        VStack(spacing: 2) {
+        VStack(spacing: ViewConstants.wordleVStackSpacing) {
             ForEach(dailyViewModel.songLyricsDisplayArray) { songLyricDisplay in
                 HStack {
                     Spacer()
                     Text(songLyricDisplay.lyric)
                         .opacity(songLyricDisplay.isShown ? 1.0 : 0.0)
-                        .minimumScaleFactor(0.5)
+                        .minimumScaleFactor(ViewConstants.lyricMinScaleFactor)
                         .foregroundColor(.black)
                         .padding()
                     Spacer()
                 }
                 .background(dailyViewModel.lyricColors[songLyricDisplay.index])
-                .frame(minHeight: 55)
-                .cornerRadius(10)
+                .frame(minHeight: ViewConstants.lyricFrameHeight)
+                .cornerRadius(ViewConstants.lyricCornerRadius)
                 .padding(.horizontal)
             }
         }

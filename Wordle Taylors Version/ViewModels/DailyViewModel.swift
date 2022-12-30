@@ -18,6 +18,7 @@ class DailyViewModel: WordleViewModelProtocol, ObservableObject {
     func getSong(songs: [Song]) {
         // Get the current date and use it to seed the random number generator
         // seeding turned out to be messier than I wanted here
+        // TODO: ideally this would reset during a US time zone midnight
         srand48(Date().daysSince1970)
         let index = Int(floor((drand48() * Double(songs.count))))
         currentSong = songs[index]
@@ -35,12 +36,11 @@ class DailyViewModel: WordleViewModelProtocol, ObservableObject {
     func wonGame() {
         // TODO
         wonGameBool = true
-        print("yay")
     }
     
     func lostGame() {
-        // TODO
+        // TODO: this and won game should have a counter that keeps track of scores
+        // also there should be a countdown till the next one is dropped
         wonGameBool = false
-        print("boo")
     }
 }

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		31936AC3962026FB211D4808 /* Pods_Wordle_Taylors_VersionTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6E06E572122BA53EC26CB7E /* Pods_Wordle_Taylors_VersionTests.framework */; };
+		45214B2C295E993700891C5F /* ViewConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45214B2B295E993700891C5F /* ViewConstants.swift */; };
 		453E416D295BE6E5001F310F /* Wordle_Taylors_VersionApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453E416C295BE6E5001F310F /* Wordle_Taylors_VersionApp.swift */; };
 		453E416F295BE6E5001F310F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453E416E295BE6E5001F310F /* ContentView.swift */; };
 		453E4171295BE6E6001F310F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 453E4170295BE6E6001F310F /* Assets.xcassets */; };
@@ -51,6 +52,7 @@
 /* Begin PBXFileReference section */
 		0022ED103246023949E03648 /* Pods_Wordle_Taylors_Version_Wordle_Taylors_VersionUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Wordle_Taylors_Version_Wordle_Taylors_VersionUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2253272852B2D082F288B086 /* Pods-Wordle Taylors Version.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Wordle Taylors Version.release.xcconfig"; path = "Target Support Files/Pods-Wordle Taylors Version/Pods-Wordle Taylors Version.release.xcconfig"; sourceTree = "<group>"; };
+		45214B2B295E993700891C5F /* ViewConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewConstants.swift; sourceTree = "<group>"; };
 		453E4169295BE6E5001F310F /* Wordle Taylors Version.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Wordle Taylors Version.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		453E416C295BE6E5001F310F /* Wordle_Taylors_VersionApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wordle_Taylors_VersionApp.swift; sourceTree = "<group>"; };
 		453E416E295BE6E5001F310F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -191,6 +193,7 @@
 				453E416E295BE6E5001F310F /* ContentView.swift */,
 				45F59290295C051700E30415 /* DailyView.swift */,
 				45F59297295C1B9B00E30415 /* PracticeView.swift */,
+				45214B2B295E993700891C5F /* ViewConstants.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -476,6 +479,7 @@
 				45F59298295C1B9B00E30415 /* PracticeView.swift in Sources */,
 				45F5929A295C1BB700E30415 /* PracticeViewModel.swift in Sources */,
 				45F592A0295CF40500E30415 /* Date+WTV.swift in Sources */,
+				45214B2C295E993700891C5F /* ViewConstants.swift in Sources */,
 				45F59291295C051700E30415 /* DailyView.swift in Sources */,
 				453E416D295BE6E5001F310F /* Wordle_Taylors_VersionApp.swift in Sources */,
 				45F59294295C05EF00E30415 /* WordleViewModelProtocol.swift in Sources */,
@@ -644,7 +648,6 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Wordle-Taylors-Version-Info.plist";
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
@@ -675,7 +678,6 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Wordle-Taylors-Version-Info.plist";
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;

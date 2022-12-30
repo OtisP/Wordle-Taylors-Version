@@ -11,20 +11,20 @@ struct PracticeView: View {
     @ObservedObject var practiceViewModel: PracticeViewModel
     
     var body: some View {
-        VStack(spacing: 2) {
+        VStack(spacing: ViewConstants.wordleVStackSpacing) {
             ForEach(practiceViewModel.songLyricsDisplayArray) { songLyricDisplay in
                 HStack {
                     Spacer()
                     Text(songLyricDisplay.lyric)
                         .opacity(songLyricDisplay.isShown ? 1.0 : 0.0)
-                        .minimumScaleFactor(0.5)
+                        .minimumScaleFactor(ViewConstants.lyricMinScaleFactor)
                         .foregroundColor(.black)
                         .padding()
                     Spacer()
                 }
                 .background(practiceViewModel.lyricColors[songLyricDisplay.index])
-                .frame(minHeight: 55)
-                .cornerRadius(10)
+                .frame(minHeight: ViewConstants.lyricFrameHeight)
+                .cornerRadius(ViewConstants.lyricCornerRadius)
                 .padding(.horizontal)
             }
         }

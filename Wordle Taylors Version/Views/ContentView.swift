@@ -41,12 +41,15 @@ struct ContentView: View {
             )
                 .edgesIgnoringSafeArea(.all)
             VStack {
+                // The header of the app -- title etc
                 VStack(spacing: 5) {
                     Text("Wordle")
                         .font(.system(size: 28))
+                        .foregroundColor(Color.black)
                     Text("(Taylor's Version)")
                         .font(.custom("charlotte", size: 28))
                         .foregroundColor(Color.black)
+                    // Buttons to switch between daily and practice
                     HStack {
                         Button(action: { self.wordleState = .daily }) {
                             Text("Daily")
@@ -55,7 +58,6 @@ struct ContentView: View {
                                 .background(self.wordleState == .daily ? Color.blue : Color.gray)
                                 .cornerRadius(10)
                         }
-                        
                         Button(action: { self.wordleState = .practice }) {
                             Text("Practice")
                                 .foregroundColor(self.wordleState == .practice ? .white : .black)
@@ -65,10 +67,9 @@ struct ContentView: View {
                         }
                     }
                     
-                    switch wordleState {
-                    case .daily:
-                        // TODO: DRY this
-                        VStack {
+                    VStack {
+                        switch wordleState {
+                        case .daily:
                             if let wonGame = dailyViewModel.wonGameBool {
                                 if wonGame == true {
                                     Text("Winner yay")
@@ -86,10 +87,7 @@ struct ContentView: View {
                                     .bold()
                                 }
                             }
-                        }
-                        .border(Color.black)
-                    case .practice:
-                        VStack {
+                        case .practice:
                             if let wonGame = practiceViewModel.wonGameBool {
                                 if wonGame == true {
                                     Text("Winner yay")
@@ -114,6 +112,7 @@ struct ContentView: View {
                     }
                     Spacer()
                 }
+                // The views that display the lyrics
                 VStack {
                     switch wordleState {
                     case .daily:
@@ -122,13 +121,13 @@ struct ContentView: View {
                         practiceView
                     }
                 }
-                .border(Color.black)
-                
+                // The album and song selectors
                 VStack(alignment: .leading) {
                     Divider()
                     HStack {
+                        Spacer()
                         Text("Album")
-                        Divider()
+                            .foregroundColor(Color.black)
                         Picker(selection: $viewModel.selectedAlbum, label: Text("Select an album")) {
                             ForEach(viewModel.albums, id: \.self) { album in
                                 Text(album).tag(album)
@@ -136,11 +135,11 @@ struct ContentView: View {
                         }
                         .frame(minWidth: 300, maxWidth: 300, minHeight: 40, maxHeight: 40)
                     }
-                    .frame(minHeight: 40, maxHeight: 40)
-
                     Divider()
                     HStack {
+                        Spacer()
                         Text("Song")
+                            .foregroundColor(Color.black)
                         Picker(selection: $viewModel.selectedSong, label: Text("Select a song")) {
                             ForEach(viewModel.songAndAlbumDict[viewModel.selectedAlbum] ?? [], id: \.self) { song in
                                 Text(song)
@@ -148,11 +147,9 @@ struct ContentView: View {
                             }
                         }
                         .frame(minWidth: 300, maxWidth: 300, minHeight: 40, maxHeight: 40)
-                        // .border(Color.black, width: 1)
                     }
                     Divider()
                 }
-                .border(Color.black)
                 
                 // Button to submit the guess
                 Button(action: {

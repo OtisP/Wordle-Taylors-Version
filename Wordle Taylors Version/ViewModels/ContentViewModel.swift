@@ -9,7 +9,6 @@ import SwiftUI
 import CSwiftV
 
 class ContentViewModel: ObservableObject {
-    // TODO: album and song init shouldn't be empty string
     @Published var selectedAlbum = ""
     @Published var selectedSong = ""
     var songAndAlbumDict: [String : [String]] = [:]
@@ -19,9 +18,7 @@ class ContentViewModel: ObservableObject {
         return albumKeys.sorted { $0 < $1 }
     }
 
-    init(selectedAlbum: String = "", selectedSong: String = "", songs: [Song]) {
-        self.selectedAlbum = selectedAlbum
-        self.selectedSong = selectedSong
+    init(songs: [Song]) {
         self.songs = songs
         for song in self.songs {
             if songAndAlbumDict[song.album] != nil {
@@ -30,5 +27,7 @@ class ContentViewModel: ObservableObject {
                 songAndAlbumDict[song.album] = [song.title]
             }
         }
+        self.selectedAlbum = albums[0]
+        self.selectedSong = songAndAlbumDict[selectedAlbum]?[0] ?? ""
     }
 }
