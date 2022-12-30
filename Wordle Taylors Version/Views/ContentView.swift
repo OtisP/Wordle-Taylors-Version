@@ -9,35 +9,6 @@ import SwiftUI
 
 struct ContentView: View {
     @ObservedObject var viewModel: ContentViewModel = ContentViewModel(songs: fetchSongs())
-    @State private var wordleState: WordleState = .daily
-
-    @ObservedObject var dailyViewModel: DailyViewModel
-    @ObservedObject var practiceViewModel: PracticeViewModel
-    var dailyView: DailyView
-    var practiceView: PracticeView
-
-    init() {
-        // If there is state saved in the DailyViewModel then load it
-        var dailyViewModel: DailyViewModel
-        let decoder = JSONDecoder()
-        if let savedDailyViewModel = UserDefaults.standard.object(forKey: "dailyViewModel") as? Data,
-           let unwrappedDailyViewModel = try? decoder.decode(DailyViewModel.self, from: savedDailyViewModel) {
-            dailyViewModel = unwrappedDailyViewModel
-        } else {
-            dailyViewModel = DailyViewModel()
-        }
-        dailyView = DailyView(dailyViewModel: dailyViewModel)
-        self.dailyViewModel = dailyViewModel
-        
-        let practiceViewModel = PracticeViewModel()
-        practiceView = PracticeView(practiceViewModel: practiceViewModel)
-        self.practiceViewModel = practiceViewModel
-        
-        practiceView.practiceViewModel.getSong(songs: viewModel.songs)
-        if dailyViewModel.currentSong == nil {
-            dailyView.dailyViewModel.getSong(songs: viewModel.songs)
-        }
-    }
 
     var body: some View {
         ZStack {
@@ -63,74 +34,29 @@ struct ContentView: View {
                         .foregroundColor(Color.black)
                     // Buttons to switch between daily and practice
                     HStack {
-                        Button(action: { self.wordleState = .daily }) {
+                        Button(action: { viewModel.wordleState = .daily }) {
                             Text("Daily")
-                                .foregroundColor(self.wordleState == .daily ? .white : .black)
+                                .foregroundColor(viewModel.wordleState == .daily ? .white : .black)
                                 .padding(10)
-                                .background(self.wordleState == .daily ? Color.blue : Color.gray)
+                                .background(viewModel.wordleState == .daily ? Color.blue : Color.gray)
                                 .cornerRadius(10)
                         }
-                        Button(action: { self.wordleState = .practice }) {
+                        Button(action: { viewModel.wordleState = .practice }) {
                             Text("Practice")
-                                .foregroundColor(self.wordleState == .practice ? .white : .black)
+                                .foregroundColor(viewModel.wordleState == .practice ? .white : .black)
                                 .padding(10)
-                                .background(self.wordleState == .practice ? Color.blue : Color.gray)
+                                .background(viewModel.wordleState == .practice ? Color.blue : Color.gray)
                                 .cornerRadius(10)
                         }
                     }
-                    
-                    VStack {
-                        switch wordleState {
-                        case .daily:
-                            if let wonGame = dailyViewModel.wonGameBool {
-                                if wonGame == true {
-                                    Text("Winner yay")
-                                        .foregroundColor(.green)
-                                        .bold()
-                                } else if wonGame == false {
-                                    Text("Loser Boo, the right answer was:")
-                                        .foregroundColor(.red)
-                                        .bold()
-                                    Text(
-                                        (dailyViewModel.currentSong?.title ?? "")
-                                        + " - "
-                                        + (dailyViewModel.currentSong?.album ?? "")
-                                    )
-                                    .bold()
-                                }
-                            }
-                        case .practice:
-                            if let wonGame = practiceViewModel.wonGameBool {
-                                if wonGame == true {
-                                    Text("Winner yay")
-                                        .foregroundColor(.green)
-                                        .bold()
-                                } else if wonGame == false {
-                                    Text("Loser Boo, the right answer was:")
-                                        .foregroundColor(.red)
-                                        .bold()
-                                    Text(
-                                        (practiceViewModel.currentSong?.title ?? "")
-                                        + " - "
-                                        + (practiceViewModel.currentSong?.album ?? "")
-                                    )
-                                    .bold()
-                                }
-                                Button(action: { practiceViewModel.getSong(songs: viewModel.songs) }) {
-                                    Text("Start New Game +")
-                                }
-                            }
-                        }
-                    }
-                    Spacer()
                 }
-                // The views that display the lyrics
+                // The views that display win/loss message and lyrics
                 VStack {
-                    switch wordleState {
+                    switch viewModel.wordleState {
                     case .daily:
-                        dailyView
+                        viewModel.dailyView
                     case .practice:
-                        practiceView
+                        viewModel.practiceView
                     }
                 }
                 // The album and song selectors
@@ -164,19 +90,7 @@ struct ContentView: View {
                 }
                 
                 // Button to submit the guess
-                Button(action: {
-                    switch wordleState {
-                    case .daily:
-                        dailyViewModel.submitGuess(selectedSong: viewModel.selectedSong, selectedAlbum: viewModel.selectedAlbum)
-                        let encoder = JSONEncoder()
-                        if let encoded = try? encoder.encode(dailyViewModel) {
-                            let defaults = UserDefaults.standard
-                            defaults.set(encoded, forKey: "dailyViewModel")
-                        }
-                    case .practice:
-                        practiceViewModel.submitGuess(selectedSong: viewModel.selectedSong, selectedAlbum: viewModel.selectedAlbum)
-                    }
-                } ) {
+                Button(action: { viewModel.submitGuess() } ) {
                     Text("Submit")
                 }
             }

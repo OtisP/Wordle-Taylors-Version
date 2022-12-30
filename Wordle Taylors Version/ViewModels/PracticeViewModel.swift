@@ -14,8 +14,13 @@ class PracticeViewModel: WordleViewModelProtocol, ObservableObject {
     @Published var songLyricsDisplayArray: [SongLyricDisplay] = []
     @Published var lyricColorsStrings: [String] = Array(repeating: "gray", count: 6)
     @Published var guessIndex: Int = 0
-    
+
     @Published var wonGameBool: Bool? = nil
+    let songs: [Song]
+
+    init(songs: [Song]) {
+        self.songs = songs
+    }
 
     func getSong(songs: [Song]) {
         currentSong = songs.randomElement()
@@ -28,11 +33,11 @@ class PracticeViewModel: WordleViewModelProtocol, ObservableObject {
         
         revealSongLyric()
     }
-    
+
     func wonGame() {
         wonGameBool = true
     }
-    
+
     func lostGame() {
         wonGameBool = false
     }

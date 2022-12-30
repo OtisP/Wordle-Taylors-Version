@@ -9,23 +9,46 @@ import SwiftUI
 
 struct PracticeView: View {
     @ObservedObject var practiceViewModel: PracticeViewModel
-    
+
     var body: some View {
-        VStack(spacing: ViewConstants.wordleVStackSpacing) {
-            ForEach(practiceViewModel.songLyricsDisplayArray) { songLyricDisplay in
-                HStack {
-                    Spacer()
-                    Text(songLyricDisplay.lyric)
-                        .opacity(songLyricDisplay.isShown ? 1.0 : 0.0)
-                        .minimumScaleFactor(ViewConstants.lyricMinScaleFactor)
-                        .foregroundColor(.black)
-                        .padding()
-                    Spacer()
+        VStack{
+            if let wonGame = practiceViewModel.wonGameBool {
+                if wonGame == true {
+                    Text("Winner yay")
+                        .foregroundColor(.green)
+                        .bold()
+                } else if wonGame == false {
+                    Text("Loser Boo, the right answer was:")
+                        .foregroundColor(.red)
+                        .bold()
+                    Text(
+                        (practiceViewModel.currentSong?.title ?? "")
+                        + " - "
+                        + (practiceViewModel.currentSong?.album ?? "")
+                    )
+                    .foregroundColor(.black)
+                    .bold()
                 }
-                .background(practiceViewModel.lyricColors[songLyricDisplay.index])
-                .frame(minHeight: ViewConstants.lyricFrameHeight)
-                .cornerRadius(ViewConstants.lyricCornerRadius)
-                .padding(.horizontal)
+                Button(action: { practiceViewModel.getSong(songs: practiceViewModel.songs) }) {
+                    Text("Start New Game +")
+                }
+            }
+            VStack(spacing: ViewConstants.wordleVStackSpacing) {
+                ForEach(practiceViewModel.songLyricsDisplayArray) { songLyricDisplay in
+                    HStack {
+                        Spacer()
+                        Text(songLyricDisplay.lyric)
+                            .opacity(songLyricDisplay.isShown ? 1.0 : 0.0)
+                            .minimumScaleFactor(ViewConstants.lyricMinScaleFactor)
+                            .foregroundColor(.black)
+                            .padding()
+                        Spacer()
+                    }
+                    .background(practiceViewModel.lyricColors[songLyricDisplay.index])
+                    .frame(minHeight: ViewConstants.lyricFrameHeight)
+                    .cornerRadius(ViewConstants.lyricCornerRadius)
+                    .padding(.horizontal)
+                }
             }
         }
     }
