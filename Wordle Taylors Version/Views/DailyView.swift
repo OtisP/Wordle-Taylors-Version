@@ -29,8 +29,7 @@ struct DailyView: View {
                     )
                     .bold()
                 }
-                // guard var secondsTilMidnight else { self.secondsTilMidnight = Date.secondsTilMidnight - timerCount }
-                if var secondsTilMidnight = dailyViewModel.secondsTilMidnight {
+                if let secondsTilMidnight = dailyViewModel.secondsTilMidnight {
                     Text("\(secondsTilMidnight.secondsToTimeDisplay) till next Wordle (TV)")
                         .foregroundColor(.black)
                         .onReceive(dailyViewModel.timer) { _ in
