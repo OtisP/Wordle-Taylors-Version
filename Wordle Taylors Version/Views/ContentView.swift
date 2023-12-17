@@ -26,9 +26,11 @@ struct ContentView: View {
             VStack {
                 // The header of the app -- title etc
                 VStack(spacing: 5) {
-                    Text("Wordle")
-                        .font(.system(size: 28))
-                        .foregroundColor(Color.black)
+                    ZStack {
+                        Text("Wordle")
+                            .font(.system(size: 28))
+                            .foregroundColor(Color.black)
+                    }
                     Text("(Taylor's Version)")
                         .font(.custom("charlotte", size: 28))
                         .foregroundColor(Color.black)
@@ -50,6 +52,7 @@ struct ContentView: View {
                         }
                     }
                 }
+                Spacer()
                 // The views that display win/loss message and lyrics
                 VStack {
                     switch viewModel.wordleState {
@@ -72,6 +75,8 @@ struct ContentView: View {
                             }
                         }
                         .frame(minWidth: 300, maxWidth: 300, minHeight: 40, maxHeight: 40)
+                        .cornerRadius(10)
+                        .padding(10)
                     }
                     Divider()
                     HStack {
@@ -80,11 +85,14 @@ struct ContentView: View {
                             .foregroundColor(Color.black)
                         Picker(selection: $viewModel.selectedSong, label: Text("Select a song")) {
                             ForEach(viewModel.songAndAlbumDict[viewModel.selectedAlbum] ?? [], id: \.self) { song in
-                                Text(song)
+                                Text(song.title).tag(song.title)
                                     .lineLimit(1)
+                                    .foregroundStyle(.black)
                             }
                         }
                         .frame(minWidth: 300, maxWidth: 300, minHeight: 40, maxHeight: 40)
+                        .cornerRadius(10)
+                        .padding([.horizontal, .vertical], 10)
                     }
                     Divider()
                 }
@@ -98,8 +106,7 @@ struct ContentView: View {
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
-    }
+#Preview {
+    ContentView()
 }
+

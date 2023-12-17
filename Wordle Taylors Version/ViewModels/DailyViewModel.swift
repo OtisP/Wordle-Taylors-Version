@@ -42,13 +42,12 @@ final class DailyViewModel: WordleViewModelProtocol, Codable, ObservableObject {
         }
     }
     
+    //TODO: These functions could eventually contain stat-keeping logic
     func wonGame() {
-        // TODO
         wonGameBool = true
     }
     
     func lostGame() {
-        // TODO: this and won game should have a counter that keeps track of scores
         wonGameBool = false
     }
     

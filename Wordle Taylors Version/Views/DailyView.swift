@@ -15,11 +15,11 @@ struct DailyView: View {
         VStack {
             if let wonGame = dailyViewModel.wonGameBool {
                 if wonGame == true {
-                    Text("Winner yay")
+                    Text("Winner Yay!")
                         .foregroundColor(.green)
                         .bold()
                 } else if wonGame == false {
-                    Text("Loser Boo, the right answer was:")
+                    Text("So Close! Correct Answer:")
                         .foregroundColor(.red)
                         .bold()
                     Text(
