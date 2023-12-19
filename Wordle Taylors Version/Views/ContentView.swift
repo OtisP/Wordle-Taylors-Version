@@ -23,14 +23,12 @@ struct ContentView: View {
                 startPoint: .topLeading, endPoint: .bottomTrailing
             )
                 .edgesIgnoringSafeArea(.all)
-            VStack {
+            ScrollView {
                 // The header of the app -- title etc
                 VStack(spacing: 5) {
-                    ZStack {
-                        Text("Wordle")
-                            .font(.system(size: 28))
-                            .foregroundColor(Color.black)
-                    }
+                    Text("Wordle")
+                        .font(.system(size: 28))
+                        .foregroundColor(Color.black)
                     Text("(Taylor's Version)")
                         .font(.custom("charlotte", size: 28))
                         .foregroundColor(Color.black)
@@ -66,23 +64,23 @@ struct ContentView: View {
                 VStack(alignment: .leading) {
                     Divider()
                     HStack {
-                        Spacer()
                         Text("Album")
                             .foregroundColor(Color.black)
+                            .padding(.horizontal, 10)
+                        Spacer()
                         Picker(selection: $viewModel.selectedAlbum, label: Text("Select an album")) {
                             ForEach(viewModel.albums, id: \.self) { album in
                                 Text(album).tag(album)
                             }
                         }
-                        .frame(minWidth: 300, maxWidth: 300, minHeight: 40, maxHeight: 40)
-                        .cornerRadius(10)
-                        .padding(10)
+                        .padding(.horizontal, 10)
                     }
                     Divider()
                     HStack {
-                        Spacer()
                         Text("Song")
                             .foregroundColor(Color.black)
+                            .padding(.horizontal, 10)
+                        Spacer()
                         Picker(selection: $viewModel.selectedSong, label: Text("Select a song")) {
                             ForEach(viewModel.songAndAlbumDict[viewModel.selectedAlbum] ?? [], id: \.self) { song in
                                 Text(song.title).tag(song.title)
@@ -90,9 +88,7 @@ struct ContentView: View {
                                     .foregroundStyle(.black)
                             }
                         }
-                        .frame(minWidth: 300, maxWidth: 300, minHeight: 40, maxHeight: 40)
-                        .cornerRadius(10)
-                        .padding([.horizontal, .vertical], 10)
+                        .padding(.horizontal, 10)
                     }
                     Divider()
                 }
@@ -101,7 +97,9 @@ struct ContentView: View {
                 Button(action: { viewModel.submitGuess() } ) {
                     Text("Submit")
                 }
+                .padding(.bottom, 10)
             }
+            .scrollBounceBehavior(.basedOnSize)
         }
     }
 }
