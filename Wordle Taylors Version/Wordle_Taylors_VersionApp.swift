@@ -9,7 +9,6 @@ import SwiftUI
 
 @main
 struct Wordle_Taylors_VersionApp: App {
-    let songs = fetchSongs()
     var body: some Scene {
         WindowGroup {
             ContentView()
