@@ -7,7 +7,6 @@
 
 enum ViewConstants {
     static let wordleVStackSpacing = 2.0
-    static let lyricFrameHeight = 55.0
     static let lyricCornerRadius = 10.0
     static let lyricMinScaleFactor = 0.5
 }

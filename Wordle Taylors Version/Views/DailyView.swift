@@ -57,7 +57,6 @@ struct DailyView: View {
                         Spacer()
                     }
                     .background(dailyViewModel.lyricColors[songLyricDisplay.index])
-                    .frame(minHeight: ViewConstants.lyricFrameHeight)
                     .cornerRadius(ViewConstants.lyricCornerRadius)
                     .padding(.horizontal)
                 }

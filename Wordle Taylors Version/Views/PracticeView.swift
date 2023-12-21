@@ -45,7 +45,6 @@ struct PracticeView: View {
                         Spacer()
                     }
                     .background(practiceViewModel.lyricColors[songLyricDisplay.index])
-                    .frame(minHeight: ViewConstants.lyricFrameHeight)
                     .cornerRadius(ViewConstants.lyricCornerRadius)
                     .padding(.horizontal)
                 }
