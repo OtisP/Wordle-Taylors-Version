@@ -55,13 +55,13 @@ class ContentViewModel: ObservableObject {
         }
         dailyView = DailyView(dailyViewModel: dailyViewModel, songs: songs)
         self.dailyViewModel = dailyViewModel
-        dailyView.dailyViewModel.getSong(songs: songs)
+        dailyView.dailyViewModel.loadTodaysSong(songs: songs)
 
         // MARK: PracticeView
         let practiceViewModel = PracticeViewModel(songs: songs)
         practiceView = PracticeView(practiceViewModel: practiceViewModel)
         self.practiceViewModel = practiceViewModel
-        practiceView.practiceViewModel.getSong(songs: songs)
+        practiceView.practiceViewModel.loadTodaysSong(songs: songs)
 
         self.selectedAlbum = albums[0]
         self.selectedSong = songAndAlbumDict[selectedAlbum]?[0].title ?? ""

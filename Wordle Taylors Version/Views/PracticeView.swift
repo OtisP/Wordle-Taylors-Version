@@ -29,7 +29,7 @@ struct PracticeView: View {
                     .foregroundColor(.black)
                     .bold()
                 }
-                Button(action: { practiceViewModel.getSong(songs: practiceViewModel.songs) }) {
+                Button(action: { practiceViewModel.loadTodaysSong(songs: practiceViewModel.songs) }) {
                     Text("Start New Game +")
                 }
             }

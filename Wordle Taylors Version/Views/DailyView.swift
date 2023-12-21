@@ -35,7 +35,7 @@ struct DailyView: View {
                         .onReceive(dailyViewModel.timer) { _ in
                             dailyViewModel.secondsTilMidnight = Date.secondsTilMidnight - dailyViewModel.timerCount
                             if secondsTilMidnight < 1 {
-                                dailyViewModel.getSong(songs: songs)
+                                dailyViewModel.loadTodaysSong(songs: songs)
                             }
                         }
                 } else {
@@ -60,6 +60,11 @@ struct DailyView: View {
                     .cornerRadius(ViewConstants.lyricCornerRadius)
                     .padding(.horizontal)
                 }
+            }
+        }
+        .onReceive(NotificationCenter.default.publisher(for: UIApplication.willEnterForegroundNotification)) { _ in
+            if dailyViewModel.todaysSong(songs: songs) != dailyViewModel.currentSong {
+                dailyViewModel.loadTodaysSong(songs: songs)
             }
         }
     }

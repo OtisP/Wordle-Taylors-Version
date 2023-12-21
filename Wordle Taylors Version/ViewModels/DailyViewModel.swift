@@ -22,14 +22,9 @@ final class DailyViewModel: WordleViewModelProtocol, Codable, ObservableObject {
 
     init() { }
 
-    func getSong(songs: [Song]) {
-        // Get the current date and use it to seed the random number generator
-        // seeding turned out to be messier than I wanted here
-        srand48(Date().customDateInt)
-        let index = Int(floor((drand48() * Double(songs.count))))
-        let currentDaySong = songs[index]
-        print(currentDaySong.title)
-        
+    
+    func loadTodaysSong(songs: [Song]) {
+        let currentDaySong = todaysSong(songs: songs)
         if currentSong != currentDaySong {
             currentSong = currentDaySong
             guard let songLyricsDisplayArray = currentSong?.getdisplayLyrics(isSeeded: true) else { return }
@@ -40,6 +35,17 @@ final class DailyViewModel: WordleViewModelProtocol, Codable, ObservableObject {
             
             revealSongLyric()
         }
+    }
+    
+    // Get todays song
+    func todaysSong(songs: [Song]) -> Song {
+        // Get the current date and use it to seed the random number generator
+        // seeding turned out to be messier than I wanted here
+        srand48(Date().customDateInt)
+        let index = Int(floor((drand48() * Double(songs.count))))
+        let currentDaySong = songs[index]
+        print(currentDaySong.title)
+        return currentDaySong
     }
     
     //TODO: These functions could eventually contain stat-keeping logic

@@ -22,7 +22,7 @@ class PracticeViewModel: WordleViewModelProtocol, ObservableObject {
         self.songs = songs
     }
 
-    func getSong(songs: [Song]) {
+    func loadTodaysSong(songs: [Song]) {
         currentSong = songs.randomElement()
         print(currentSong?.title ?? "")
         guard let songLyricsDisplayArray = currentSong?.getdisplayLyrics(isSeeded: false) else { return }

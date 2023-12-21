@@ -24,7 +24,7 @@ protocol WordleViewModelProtocol: AnyObject {
     var lyricColors: [Color] { get }
 
     /// The way that songs are gotten at the start/for a new game
-    func getSong(songs: [Song])
+    func loadTodaysSong(songs: [Song])
     func submitGuess(selectedSong: String, selectedAlbum: String)
     func revealSongLyric()
     func updateColor(_ guessidx: Int, selectedSong: String, selectedAlbum: String)
