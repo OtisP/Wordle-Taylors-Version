@@ -14,7 +14,7 @@ enum WordleState {
 }
 
 // What every lyric display viewModel should have the ability to do
-protocol WordleViewModelProtocol: AnyObject {
+protocol WordleViewModelProtocol: AnyObject, ObservableObject {
     var currentSong: Song? { get set }
     var songLyricsDisplayArray: [SongLyricDisplay] { get set }
     var lyricColorsStrings: [String] { get set }

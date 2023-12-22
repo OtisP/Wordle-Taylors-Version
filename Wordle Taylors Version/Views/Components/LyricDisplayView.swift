@@ -7,8 +7,8 @@
 
 import SwiftUI
 
-struct LyricDisplayView: View {
-    let viewModel: WordleViewModelProtocol
+struct LyricDisplayView<Model>: View where Model: WordleViewModelProtocol {
+    @ObservedObject var viewModel: Model
     
     var body: some View {
         VStack(spacing: ViewConstants.wordleVStackSpacing) {

@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-import CSwiftV
+import SQLite3
 
 class ContentViewModel: ObservableObject {
     @Published var selectedAlbum: String {
@@ -29,8 +29,45 @@ class ContentViewModel: ObservableObject {
     var dailyView: DailyView
     var practiceView: PracticeView
 
-    init(songs: [Song]) {
-        self.songs = songs
+    init() {
+        var db: OpaquePointer?
+
+        var songList: [Song] = []
+        guard let dbPath = Bundle.main.path(forResource: "songs", ofType: "sqlite")  else {
+            fatalError()
+        }
+        
+        // Open the database
+        if sqlite3_open(dbPath, &db) == SQLITE_OK {
+            print("Successfully opened connection to database at \(dbPath)")
+
+            var statement: OpaquePointer?
+
+            let query = "SELECT * FROM songs;"
+
+            if sqlite3_prepare_v2(db, query, -1, &statement, nil) == SQLITE_OK {
+                while sqlite3_step(statement) == SQLITE_ROW {
+                    // Access results
+                    let songTitle = String(cString: sqlite3_column_text(statement, 0))
+                    let songAlbum = String(cString: sqlite3_column_text(statement, 1))
+                    let songLyrics = String(cString: sqlite3_column_text(statement, 2))
+
+                    songList.append(Song(title: songTitle, album: songAlbum, lyrics: songLyrics))
+                }
+            } else {
+                fatalError("Error preparing SQL statement")
+            }
+
+            // Finalize the statement to release resources
+            sqlite3_finalize(statement)
+        } else {
+            fatalError("Unable to open database.")
+        }
+
+        // Close the database connection
+        sqlite3_close(db)
+
+        self.songs = songList
         for song in self.songs {
             if songAndAlbumDict[song.album] != nil {
                 songAndAlbumDict[song.album]?.append(song)

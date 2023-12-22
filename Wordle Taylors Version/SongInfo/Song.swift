@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import CSwiftV
 
 struct Song: Codable, Hashable {
     let title: String
@@ -67,23 +66,4 @@ class SongLyricDisplay: Codable, Identifiable {
     func flipShownProperty() {
         isShown = !isShown
     }
-}
-
-func fetchSongs() -> [Song] {
-    // locate the file to use
-    guard let filepath = Bundle.main.path(forResource: "songs", ofType: "csv") else {
-        return []
-    }
-
-    // convert that file into one long string
-    var data = ""
-    do {
-        data = try String(contentsOfFile: filepath)
-    } catch {
-        print(error)
-        return []
-    }
-
-    let csv = CSwiftV.init(with: data)
-    return csv.rows.map { Song(title: $0[0], album: $0[1], lyrics: $0[2]) }
 }
