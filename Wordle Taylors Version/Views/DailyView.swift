@@ -38,6 +38,11 @@ struct DailyView: View {
                                 dailyViewModel.loadTodaysSong(songs: songs)
                             }
                         }
+                    Button(action: {
+                        dailyViewModel.copyShareResults()
+                    }) {
+                        Text("Share Results")
+                    }
                 } else {
                     Text("")
                         .onReceive(dailyViewModel.timer) { _ in
@@ -65,6 +70,16 @@ struct DailyView: View {
         .onReceive(NotificationCenter.default.publisher(for: UIApplication.willEnterForegroundNotification)) { _ in
             if dailyViewModel.todaysSong(songs: songs) != dailyViewModel.currentSong {
                 dailyViewModel.loadTodaysSong(songs: songs)
+            }
+        }
+        .overlay {
+            if dailyViewModel.showCopiedOverlay {
+                Text("Copied to clipboard!")
+                    .foregroundColor(Color.black)
+                    .padding(10)
+                    .background(Color.white)
+                    .cornerRadius(10)
+                    .transition(.opacity)
             }
         }
     }

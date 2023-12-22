@@ -70,7 +70,7 @@ class ContentViewModel: ObservableObject {
     func submitGuess() {
         switch wordleState {
         case .daily:
-            guard dailyViewModel.wonGameBool == nil else { return }
+            guard !dailyViewModel.gameOver else { return }
             dailyViewModel.submitGuess(selectedSong: selectedSong, selectedAlbum: selectedAlbum)
             let encoder = JSONEncoder()
             if let encoded = try? encoder.encode(dailyViewModel) {
@@ -78,7 +78,7 @@ class ContentViewModel: ObservableObject {
                 defaults.set(encoded, forKey: "dailyViewModel")
             }
         case .practice:
-            guard practiceViewModel.wonGameBool == nil else { return }
+            guard !practiceViewModel.gameOver else { return }
             practiceViewModel.submitGuess(selectedSong: selectedSong, selectedAlbum: selectedAlbum)
         }
     }

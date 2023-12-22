@@ -21,6 +21,7 @@ protocol WordleViewModelProtocol: AnyObject {
     var guessIndex: Int { get set }
     var wonGameBool: Bool? { get set }
     
+    var gameOver: Bool { get }
     var lyricColors: [Color] { get }
 
     /// The way that songs are gotten at the start/for a new game
@@ -35,6 +36,10 @@ protocol WordleViewModelProtocol: AnyObject {
 extension WordleViewModelProtocol {
     var lyricColors: [Color] {
         lyricColorsStrings.map { Color($0) }
+    }
+    
+    var gameOver: Bool {
+        return wonGameBool != nil
     }
 
     func submitGuess(selectedSong: String, selectedAlbum: String) {

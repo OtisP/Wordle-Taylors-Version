@@ -14,6 +14,7 @@ final class DailyViewModel: WordleViewModelProtocol, Codable, ObservableObject {
     @Published var lyricColorsStrings: [String] = Array(repeating: "gray", count: 6)
     @Published var guessIndex: Int = 0
     @Published var wonGameBool: Bool?
+    @Published var showCopiedOverlay: Bool = false
 
     // Countdown timer
     let timer = Timer.publish(every: 1, on: .current, in: .common).autoconnect()
@@ -46,6 +47,50 @@ final class DailyViewModel: WordleViewModelProtocol, Codable, ObservableObject {
         let currentDaySong = songs[index]
         print(currentDaySong.title)
         return currentDaySong
+    }
+    
+    func copyShareResults() {
+        withAnimation {
+            showCopiedOverlay.toggle()
+        }
+
+        guard gameOver else { return }
+        // title of game
+        var shareText = ["Wordle (Taylor’s Version)"]
+        
+        // current date
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MM.dd.yy"
+        let formattedDate = dateFormatter.string(from: Date())
+        shareText.append(formattedDate)
+        
+        // guess squares
+        var squaresString: String = ""
+        for guess in lyricColorsStrings {
+            switch guess {
+            case "red":
+                squaresString += "🟥"
+            case "green":
+                squaresString += "🟩"
+            case "orange":
+                squaresString += "🟧"
+            default:
+                continue
+            }
+        }
+        shareText.append(squaresString)
+        
+        // guess count
+        shareText.append("\(guessIndex)/6")
+        
+        UIPasteboard.general.string = shareText.joined(separator: "\n")
+        
+        // Schedule to hide the overlay after a delay (1 second in this case)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            withAnimation {
+                self.showCopiedOverlay.toggle()
+            }
+        }
     }
     
     //TODO: These functions could eventually contain stat-keeping logic
