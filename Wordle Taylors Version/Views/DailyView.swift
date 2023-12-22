@@ -13,22 +13,9 @@ struct DailyView: View {
 
     var body: some View {
         VStack {
-            if let wonGame = dailyViewModel.wonGameBool {
-                if wonGame == true {
-                    Text("Winner Yay!")
-                        .foregroundColor(.green)
-                        .bold()
-                } else if wonGame == false {
-                    Text("So Close! Correct Answer:")
-                        .foregroundColor(.red)
-                        .bold()
-                    Text(
-                        (dailyViewModel.currentSong?.title ?? "")
-                        + " - "
-                        + (dailyViewModel.currentSong?.album ?? "")
-                    )
-                    .bold()
-                }
+            if let wonGame = dailyViewModel.wonGameBool,
+                let winningSong = dailyViewModel.currentSong {
+                GameOverInfoView(wonGame: wonGame, winningSong: winningSong)
                 if let secondsTilMidnight = dailyViewModel.secondsTilMidnight {
                     Text("\(secondsTilMidnight.secondsToTimeDisplay) till next Wordle (TV)")
                         .foregroundColor(.black)
@@ -50,23 +37,9 @@ struct DailyView: View {
                         }
                 }
             }
-            VStack(spacing: ViewConstants.wordleVStackSpacing) {
-                ForEach(dailyViewModel.songLyricsDisplayArray) { songLyricDisplay in
-                    HStack {
-                        Spacer()
-                        Text(songLyricDisplay.lyric)
-                            .opacity(songLyricDisplay.isShown ? 1.0 : 0.0)
-                            .minimumScaleFactor(ViewConstants.lyricMinScaleFactor)
-                            .foregroundColor(.black)
-                            .padding()
-                        Spacer()
-                    }
-                    .background(dailyViewModel.lyricColors[songLyricDisplay.index])
-                    .cornerRadius(ViewConstants.lyricCornerRadius)
-                    .padding(.horizontal)
-                }
-            }
+            LyricDisplayView(viewModel: dailyViewModel)
         }
+        // if the app is coming in from the background, check for a new song
         .onReceive(NotificationCenter.default.publisher(for: UIApplication.willEnterForegroundNotification)) { _ in
             if dailyViewModel.todaysSong(songs: songs) != dailyViewModel.currentSong {
                 dailyViewModel.loadTodaysSong(songs: songs)
