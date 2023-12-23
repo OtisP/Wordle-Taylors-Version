@@ -12,7 +12,7 @@ class PracticeViewModel: WordleViewModelProtocol, ObservableObject {
     
     @Published var currentSong: Song?
     @Published var songLyricsDisplayArray: [SongLyricDisplay] = []
-    @Published var lyricColorsStrings: [String] = Array(repeating: "gray", count: 6)
+    @Published var guessResults: [GuessStatus] = Array(repeating: .notGuessed, count: 6)
     @Published var guessIndex: Int = 0
 
     @Published var wonGameBool: Bool? = nil
@@ -29,7 +29,7 @@ class PracticeViewModel: WordleViewModelProtocol, ObservableObject {
         self.songLyricsDisplayArray = songLyricsDisplayArray
         guessIndex = 0
         wonGameBool = nil
-        lyricColorsStrings = Array(repeating: "gray", count: 6)
+        guessResults = Array(repeating: .notGuessed, count: 6)
         
         revealSongLyric()
     }

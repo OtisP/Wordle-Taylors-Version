@@ -17,7 +17,7 @@ enum WordleState {
 protocol WordleViewModelProtocol: AnyObject, ObservableObject {
     var currentSong: Song? { get set }
     var songLyricsDisplayArray: [SongLyricDisplay] { get set }
-    var lyricColorsStrings: [String] { get set }
+    var guessResults: [GuessStatus] { get set }
     var guessIndex: Int { get set }
     var wonGameBool: Bool? { get set }
     
@@ -35,7 +35,7 @@ protocol WordleViewModelProtocol: AnyObject, ObservableObject {
 
 extension WordleViewModelProtocol {
     var lyricColors: [Color] {
-        lyricColorsStrings.map { Color($0) }
+        guessResults.map { $0.color }
     }
     
     var gameOver: Bool {
@@ -66,11 +66,11 @@ extension WordleViewModelProtocol {
 
     func updateColor(_ guessidx: Int, selectedSong: String, selectedAlbum: String) {
         if selectedAlbum == currentSong?.album && selectedSong == currentSong?.title {
-            lyricColorsStrings[guessidx] = "green"
+            guessResults[guessidx] = .correctSong
         } else if selectedAlbum == currentSong?.album {
-            lyricColorsStrings[guessidx] = "orange"
+            guessResults[guessidx] = .incorrectSong
         } else {
-            lyricColorsStrings[guessidx] = "red"
+            guessResults[guessidx] = .incorrectAlbum
         }
     }
     

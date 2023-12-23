@@ -11,7 +11,7 @@ import SwiftUI
 final class DailyViewModel: WordleViewModelProtocol, Codable, ObservableObject {
     @Published var currentSong: Song?
     @Published var songLyricsDisplayArray: [SongLyricDisplay] = []
-    @Published var lyricColorsStrings: [String] = Array(repeating: "gray", count: 6)
+    @Published var guessResults: [GuessStatus] = Array(repeating: .notGuessed, count: 6)
     @Published var guessIndex: Int = 0
     @Published var wonGameBool: Bool?
     @Published var showCopiedOverlay: Bool = false
@@ -32,7 +32,7 @@ final class DailyViewModel: WordleViewModelProtocol, Codable, ObservableObject {
             self.songLyricsDisplayArray = songLyricsDisplayArray
             guessIndex = 0
             wonGameBool = nil
-            lyricColorsStrings = Array(repeating: "gray", count: 6)
+            guessResults = Array(repeating: .notGuessed, count: 6)
             
             revealSongLyric()
         }
@@ -66,17 +66,8 @@ final class DailyViewModel: WordleViewModelProtocol, Codable, ObservableObject {
         
         // guess squares
         var squaresString: String = ""
-        for guess in lyricColorsStrings {
-            switch guess {
-            case "red":
-                squaresString += "🟥"
-            case "green":
-                squaresString += "🟩"
-            case "orange":
-                squaresString += "🟧"
-            default:
-                continue
-            }
+        for guess in guessResults {
+            squaresString += guess.textBox
         }
         shareText.append(squaresString)
         
@@ -107,7 +98,7 @@ final class DailyViewModel: WordleViewModelProtocol, Codable, ObservableObject {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         self.currentSong = try container.decodeIfPresent(Song.self, forKey: .currentSong)
         self.songLyricsDisplayArray = try container.decode([SongLyricDisplay].self, forKey: .songLyricsDisplayArray)
-        self.lyricColorsStrings = try container.decode([String].self, forKey: .lyricColorsStrings)
+        self.guessResults = try container.decode([GuessStatus].self, forKey: .guessResults)
         self.guessIndex = try container.decode(Int.self, forKey: .guessIndex)
         self.wonGameBool = try container.decodeIfPresent(Bool.self, forKey: .wonGameBool)
     }
@@ -116,7 +107,7 @@ final class DailyViewModel: WordleViewModelProtocol, Codable, ObservableObject {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(currentSong, forKey: .currentSong)
         try container.encode(songLyricsDisplayArray, forKey: .songLyricsDisplayArray)
-        try container.encode(lyricColorsStrings, forKey: .lyricColorsStrings)
+        try container.encode(guessResults, forKey: .guessResults)
         try container.encode(guessIndex, forKey: .guessIndex)
         try container.encode(wonGameBool, forKey: .wonGameBool)
     }
@@ -124,7 +115,7 @@ final class DailyViewModel: WordleViewModelProtocol, Codable, ObservableObject {
     enum CodingKeys: CodingKey {
         case currentSong
         case songLyricsDisplayArray
-        case lyricColorsStrings
+        case guessResults
         case guessIndex
         case wonGameBool
     }
