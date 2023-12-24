@@ -27,10 +27,10 @@ struct ContentView: View {
                 // The header of the app -- title etc
                 VStack(spacing: 5) {
                     Text("Wordle")
-                        .font(.system(size: 28))
+                        .font(.system(size: 23))
                         .foregroundColor(Color.black)
                     Text("(Taylor's Version)")
-                        .font(.custom("charlotte", size: 28))
+                        .font(.custom("charlotte", size: 23))
                         .foregroundColor(Color.black)
                     // Buttons to switch between daily and practice
                     HStack {
