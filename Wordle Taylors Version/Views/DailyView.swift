@@ -41,10 +41,9 @@ struct DailyView: View {
         }
         // if the app is coming in from the background, check for a new song
         .onReceive(NotificationCenter.default.publisher(for: UIApplication.willEnterForegroundNotification)) { _ in
-            if dailyViewModel.todaysSong(songs: songs) != dailyViewModel.currentSong {
-                dailyViewModel.loadTodaysSong(songs: songs)
-            }
+            dailyViewModel.loadTodaysSong(songs: songs)
         }
+        .onAppear { dailyViewModel.loadTodaysSong(songs: songs) }
         .overlay {
             if dailyViewModel.showCopiedOverlay {
                 Text("Copied to clipboard!")
