@@ -66,7 +66,7 @@ struct ContentView: View {
                     HStack {
                         Text("Album")
                             .foregroundColor(Color.black)
-                            .padding(.horizontal, 10)
+                            .padding(.horizontal, 20)
                         Spacer()
                         Picker(selection: $viewModel.selectedAlbum, label: Text("Select an album")) {
                             ForEach(viewModel.albums, id: \.self) { album in
@@ -79,7 +79,7 @@ struct ContentView: View {
                     HStack {
                         Text("Song")
                             .foregroundColor(Color.black)
-                            .padding(.horizontal, 10)
+                            .padding(.horizontal, 20)
                         Spacer()
                         Picker(selection: $viewModel.selectedSong, label: Text("Select a song")) {
                             ForEach(viewModel.songAndAlbumDict[viewModel.selectedAlbum] ?? [], id: \.self) { song in
