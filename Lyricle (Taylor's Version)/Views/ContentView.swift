@@ -99,7 +99,7 @@ struct ContentView: View {
                 }
                 .padding(.bottom, 10)
             }
-            .scrollBounceBehavior(.basedOnSize)
+            // .scrollBounceBehavior(.basedOnSize)
         }
     }
 }
