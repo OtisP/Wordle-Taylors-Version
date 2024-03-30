@@ -25,8 +25,12 @@ struct Song: Codable, Hashable {
             let splicedLyrics = Array(lyrics[startIndex ..< startIndex + 6])
             
             for (index, lyric) in splicedLyrics.enumerated() {
-                if lyric.before(first: "(").lowercased().contains(self.title.lowercased()) {
+                var lyricCheckAgainst = lyric
+                lyricCheckAgainst = lyric.lowercased().replacingOccurrences(of: #"[\p{P}\p{S}]"#, with: "", options: .regularExpression)
+                
+                if lyricCheckAgainst.contains(titleCheckAgainst) {
                     isValidLyrics = false
+                    break
                 }
                 displayLyrics.append(SongLyricDisplay(lyric: lyric, index: index, isShown: false))
             }
@@ -40,6 +44,14 @@ struct Song: Codable, Hashable {
         let splitLyrics = lyrics.components(separatedBy: "\n")
         let filteredLyrics = splitLyrics.filter { !$0.isEmpty && $0.first != "[" }
         self.lyrics = filteredLyrics
+    }
+    
+    private var titleCheckAgainst: String {
+        var titleCheckAgainst = self.title.lowercased()
+        titleCheckAgainst = titleCheckAgainst.replacingOccurrences(of: " [FTV]", with: "")
+        titleCheckAgainst = titleCheckAgainst.replacingOccurrences(of: #"[\p{P}\p{S}]"#, with: "", options: .regularExpression)
+        
+        return titleCheckAgainst
     }
 
 }
