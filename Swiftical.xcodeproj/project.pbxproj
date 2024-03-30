@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		45214B2C295E993700891C5F /* ViewConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45214B2B295E993700891C5F /* ViewConstants.swift */; };
-		453E416D295BE6E5001F310F /* Wordle_Taylors_VersionApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453E416C295BE6E5001F310F /* Wordle_Taylors_VersionApp.swift */; };
+		453E416D295BE6E5001F310F /* SwifticalApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453E416C295BE6E5001F310F /* SwifticalApp.swift */; };
 		453E416F295BE6E5001F310F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453E416E295BE6E5001F310F /* ContentView.swift */; };
 		453E4171295BE6E6001F310F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 453E4170295BE6E6001F310F /* Assets.xcassets */; };
 		453E4174295BE6E6001F310F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 453E4173295BE6E6001F310F /* Preview Assets.xcassets */; };
@@ -21,7 +21,7 @@
 		45F59289295BF5AA00E30415 /* ContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F59287295BF5AA00E30415 /* ContentViewModel.swift */; };
 		45F5928E295BF7A500E30415 /* song_titles.txt in Resources */ = {isa = PBXBuildFile; fileRef = 45F5928C295BF7A500E30415 /* song_titles.txt */; };
 		45F59291295C051700E30415 /* DailyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F59290295C051700E30415 /* DailyView.swift */; };
-		45F59294295C05EF00E30415 /* WordleViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F59293295C05EF00E30415 /* WordleViewModelProtocol.swift */; };
+		45F59294295C05EF00E30415 /* LyricleViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F59293295C05EF00E30415 /* LyricleViewModelProtocol.swift */; };
 		45F59296295C094800E30415 /* DailyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F59295295C094800E30415 /* DailyViewModel.swift */; };
 		45F59298295C1B9B00E30415 /* PracticeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F59297295C1B9B00E30415 /* PracticeView.swift */; };
 		45F5929A295C1BB700E30415 /* PracticeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F59299295C1BB700E30415 /* PracticeViewModel.swift */; };
@@ -31,8 +31,8 @@
 
 /* Begin PBXFileReference section */
 		45214B2B295E993700891C5F /* ViewConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewConstants.swift; sourceTree = "<group>"; };
-		453E4169295BE6E5001F310F /* Lyricle Taylor's Version.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Lyricle Taylor's Version.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		453E416C295BE6E5001F310F /* Wordle_Taylors_VersionApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wordle_Taylors_VersionApp.swift; sourceTree = "<group>"; };
+		453E4169295BE6E5001F310F /* Swiftical.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Swiftical.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		453E416C295BE6E5001F310F /* SwifticalApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwifticalApp.swift; sourceTree = "<group>"; };
 		453E416E295BE6E5001F310F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		453E4170295BE6E6001F310F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		453E4173295BE6E6001F310F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -45,13 +45,13 @@
 		45F59287295BF5AA00E30415 /* ContentViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentViewModel.swift; sourceTree = "<group>"; };
 		45F5928C295BF7A500E30415 /* song_titles.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = song_titles.txt; sourceTree = "<group>"; };
 		45F59290295C051700E30415 /* DailyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyView.swift; sourceTree = "<group>"; };
-		45F59293295C05EF00E30415 /* WordleViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordleViewModelProtocol.swift; sourceTree = "<group>"; };
+		45F59293295C05EF00E30415 /* LyricleViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LyricleViewModelProtocol.swift; sourceTree = "<group>"; };
 		45F59295295C094800E30415 /* DailyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyViewModel.swift; sourceTree = "<group>"; };
 		45F59297295C1B9B00E30415 /* PracticeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PracticeView.swift; sourceTree = "<group>"; };
 		45F59299295C1BB700E30415 /* PracticeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PracticeViewModel.swift; sourceTree = "<group>"; };
 		45F5929F295CF40500E30415 /* Extensions+WTV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extensions+WTV.swift"; sourceTree = "<group>"; };
 		45F592A1295D108E00E30415 /* Charlotte.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Charlotte.ttf; sourceTree = "<group>"; };
-		45F592A2295D10FE00E30415 /* Wordle-Taylors-Version-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Wordle-Taylors-Version-Info.plist"; sourceTree = SOURCE_ROOT; };
+		45F592A2295D10FE00E30415 /* Swiftical-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Swiftical-Info.plist"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,7 +68,7 @@
 		453E4160295BE6E5001F310F = {
 			isa = PBXGroup;
 			children = (
-				453E416B295BE6E5001F310F /* Lyricle (Taylor's Version) */,
+				453E416B295BE6E5001F310F /* Swiftical */,
 				453E416A295BE6E5001F310F /* Products */,
 			);
 			sourceTree = "<group>";
@@ -76,25 +76,25 @@
 		453E416A295BE6E5001F310F /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				453E4169295BE6E5001F310F /* Lyricle Taylor's Version.app */,
+				453E4169295BE6E5001F310F /* Swiftical.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		453E416B295BE6E5001F310F /* Lyricle (Taylor's Version) */ = {
+		453E416B295BE6E5001F310F /* Swiftical */ = {
 			isa = PBXGroup;
 			children = (
-				45F592A2295D10FE00E30415 /* Wordle-Taylors-Version-Info.plist */,
-				45F59293295C05EF00E30415 /* WordleViewModelProtocol.swift */,
+				45F592A2295D10FE00E30415 /* Swiftical-Info.plist */,
+				45F59293295C05EF00E30415 /* LyricleViewModelProtocol.swift */,
 				45F59292295C05CB00E30415 /* ViewModels */,
 				45F5928F295C04FB00E30415 /* Views */,
 				45F5928A295BF7A500E30415 /* SongInfo */,
-				453E416C295BE6E5001F310F /* Wordle_Taylors_VersionApp.swift */,
+				453E416C295BE6E5001F310F /* SwifticalApp.swift */,
 				45F5929F295CF40500E30415 /* Extensions+WTV.swift */,
 				45D93839295F5AA300183A8F /* Assets */,
 				453E4172295BE6E6001F310F /* Preview Content */,
 			);
-			path = "Lyricle (Taylor's Version)";
+			path = Swiftical;
 			sourceTree = "<group>";
 		};
 		453E4172295BE6E6001F310F /* Preview Content */ = {
@@ -160,9 +160,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		453E4168295BE6E5001F310F /* Lyricle Taylor's Version */ = {
+		453E4168295BE6E5001F310F /* Swiftical */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 453E418D295BE6E6001F310F /* Build configuration list for PBXNativeTarget "Lyricle Taylor's Version" */;
+			buildConfigurationList = 453E418D295BE6E6001F310F /* Build configuration list for PBXNativeTarget "Swiftical" */;
 			buildPhases = (
 				453E4165295BE6E5001F310F /* Sources */,
 				453E4166295BE6E5001F310F /* Frameworks */,
@@ -172,9 +172,9 @@
 			);
 			dependencies = (
 			);
-			name = "Lyricle Taylor's Version";
+			name = Swiftical;
 			productName = "Wordle Taylors Version";
-			productReference = 453E4169295BE6E5001F310F /* Lyricle Taylor's Version.app */;
+			productReference = 453E4169295BE6E5001F310F /* Swiftical.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -192,7 +192,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 453E4164295BE6E5001F310F /* Build configuration list for PBXProject "Lyricle Taylor's Version" */;
+			buildConfigurationList = 453E4164295BE6E5001F310F /* Build configuration list for PBXProject "Swiftical" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -205,7 +205,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				453E4168295BE6E5001F310F /* Lyricle Taylor's Version */,
+				453E4168295BE6E5001F310F /* Swiftical */,
 			);
 		};
 /* End PBXProject section */
@@ -241,8 +241,8 @@
 				45214B2C295E993700891C5F /* ViewConstants.swift in Sources */,
 				457EB3DC2B35355A00BA42A9 /* LyricDisplayView.swift in Sources */,
 				45F59291295C051700E30415 /* DailyView.swift in Sources */,
-				453E416D295BE6E5001F310F /* Wordle_Taylors_VersionApp.swift in Sources */,
-				45F59294295C05EF00E30415 /* WordleViewModelProtocol.swift in Sources */,
+				453E416D295BE6E5001F310F /* SwifticalApp.swift in Sources */,
+				45F59294295C05EF00E30415 /* LyricleViewModelProtocol.swift in Sources */,
 				457EB3E52B36992E00BA42A9 /* GuessStatus.swift in Sources */,
 				45F59296295C094800E30415 /* DailyViewModel.swift in Sources */,
 			);
@@ -305,7 +305,7 @@
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.games";
 				INFOPLIST_KEY_UIRequiresFullScreen = NO;
 				INFOPLIST_KEY_UIStatusBarHidden = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				NEW_SETTING = "";
@@ -364,7 +364,7 @@
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.games";
 				INFOPLIST_KEY_UIRequiresFullScreen = NO;
 				INFOPLIST_KEY_UIStatusBarHidden = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				NEW_SETTING = "";
@@ -382,12 +382,12 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"Lyricle (Taylor's Version)/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"Swiftical/Preview Content\"";
 				DEVELOPMENT_TEAM = KMDWJ5F2JF;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "Wordle-Taylors-Version-Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = "Lyricle (TV)";
+				INFOPLIST_FILE = "Swiftical-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = Swiftical;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.word-games";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -396,13 +396,13 @@
 				INFOPLIST_KEY_UIStatusBarHidden = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.otispeterson.Lyricle-Taylors-Version";
+				MARKETING_VERSION = 1.0.1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.otispeterson.swiftical;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -417,12 +417,12 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"Lyricle (Taylor's Version)/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"Swiftical/Preview Content\"";
 				DEVELOPMENT_TEAM = KMDWJ5F2JF;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "Wordle-Taylors-Version-Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = "Lyricle (TV)";
+				INFOPLIST_FILE = "Swiftical-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = Swiftical;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.word-games";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -431,13 +431,13 @@
 				INFOPLIST_KEY_UIStatusBarHidden = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.otispeterson.Lyricle-Taylors-Version";
+				MARKETING_VERSION = 1.0.1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.otispeterson.swiftical;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -448,7 +448,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		453E4164295BE6E5001F310F /* Build configuration list for PBXProject "Lyricle Taylor's Version" */ = {
+		453E4164295BE6E5001F310F /* Build configuration list for PBXProject "Swiftical" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				453E418B295BE6E6001F310F /* Debug */,
@@ -457,7 +457,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		453E418D295BE6E6001F310F /* Build configuration list for PBXNativeTarget "Lyricle Taylor's Version" */ = {
+		453E418D295BE6E6001F310F /* Build configuration list for PBXNativeTarget "Swiftical" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				453E418E295BE6E6001F310F /* Debug */,

@@ -1,6 +1,6 @@
 //
 //  GameOverInfo.swift
-//  Lyricle Taylors Version
+//  Swiftical
 //
 //  Created by Otis Peterson on 12/21/23.
 //

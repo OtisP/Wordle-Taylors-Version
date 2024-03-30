@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "453E4168295BE6E5001F310F"
-               BuildableName = "Lyricle Taylor&apos;s Version.app"
-               BlueprintName = "Lyricle Taylor&apos;s Version"
-               ReferencedContainer = "container:Lyricle Taylor&apos;s Version.xcodeproj">
+               BuildableName = "Swiftical.app"
+               BlueprintName = "Swiftical"
+               ReferencedContainer = "container:Swiftical.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -44,9 +44,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "453E4168295BE6E5001F310F"
-            BuildableName = "Lyricle Taylor&apos;s Version.app"
-            BlueprintName = "Lyricle Taylor&apos;s Version"
-            ReferencedContainer = "container:Lyricle Taylor&apos;s Version.xcodeproj">
+            BuildableName = "Swiftical.app"
+            BlueprintName = "Swiftical"
+            ReferencedContainer = "container:Swiftical.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -61,9 +61,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "453E4168295BE6E5001F310F"
-            BuildableName = "Lyricle Taylor&apos;s Version.app"
-            BlueprintName = "Lyricle Taylor&apos;s Version"
-            ReferencedContainer = "container:Lyricle Taylor&apos;s Version.xcodeproj">
+            BuildableName = "Swiftical.app"
+            BlueprintName = "Swiftical"
+            ReferencedContainer = "container:Swiftical.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

@@ -1,6 +1,6 @@
 //
 //  LyricleViewModel.swift
-//  Lyricle Taylors Version
+//  Swiftical
 //
 //  Created by Otis Peterson on 12/28/22.
 //

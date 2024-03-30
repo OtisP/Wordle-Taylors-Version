@@ -26,10 +26,7 @@ struct ContentView: View {
             ScrollView {
                 // The header of the app -- title etc
                 VStack(spacing: 5) {
-                    Text("Lyricle")
-                        .font(.system(size: 23))
-                        .foregroundColor(Color.black)
-                    Text("(Taylor's Version)")
+                    Text("Swiftical")
                         .font(.custom("charlotte", size: 23))
                         .foregroundColor(Color.black)
                     // Buttons to switch between daily and practice
@@ -99,7 +96,7 @@ struct ContentView: View {
                 }
                 .padding(.bottom, 10)
             }
-            // .scrollBounceBehavior(.basedOnSize)
+            .scrollBounceBehavior(.basedOnSize)
         }
     }
 }

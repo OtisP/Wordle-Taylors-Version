@@ -1,6 +1,6 @@
 //
 //  DailyView.swift
-//  Lyricle Taylors Version
+//  Swiftical
 //
 //  Created by Otis Peterson on 12/28/22.
 //
@@ -17,7 +17,7 @@ struct DailyView: View {
                 let winningSong = dailyViewModel.currentSong {
                 GameOverInfoView(wonGame: wonGame, winningSong: winningSong)
                 if let secondsTilMidnight = dailyViewModel.secondsTilMidnight {
-                    Text("\(secondsTilMidnight.secondsToTimeDisplay) till next Lyricle (TV)")
+                    Text("\(secondsTilMidnight.secondsToTimeDisplay) till next Swiftical")
                         .foregroundColor(.black)
                         .onReceive(dailyViewModel.timer) { _ in
                             dailyViewModel.secondsTilMidnight = Date.secondsTilMidnight - dailyViewModel.timerCount

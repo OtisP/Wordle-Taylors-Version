@@ -1,6 +1,6 @@
 //
 //  ViewConstants.swift
-//  Lyricle Taylors Version
+//  Swiftical
 //
 //  Created by Otis Peterson on 12/29/22.
 //

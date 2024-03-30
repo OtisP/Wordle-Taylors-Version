@@ -1,6 +1,6 @@
 //
 //  DailyContentViewModel.swift
-//  Lyricle Taylors Version
+//  Swiftical
 //
 //  Created by Otis Peterson on 12/28/22.
 //
@@ -56,7 +56,7 @@ final class DailyViewModel: LyricleViewModelProtocol, Codable, ObservableObject 
 
         guard gameOver else { return }
         // title of game
-        var shareText = ["Lyricle (Taylor’s Version)"]
+        var shareText = ["Swiftical"]
         
         // current date
         let dateFormatter = DateFormatter()
