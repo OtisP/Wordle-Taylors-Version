@@ -366,12 +366,44 @@ private extension String {
         case "Hits Different": return 921
         case "You're Losing Me [FTV]": return 922
             
-        case "Last Christmas": return 1001
-        case "Christmases When You Were Mine": return 1002
-        case "Santa Baby": return 1003
-        case "Silent Night": return 1004
-        case "Christmas Must Be Something More": return 1005
-        case "White Christmas": return 1006
+        case "Fortnight": return 1001
+        case "The Tortured Poets Department": return 1002
+        case "My Boy Only Breaks His Favorite Toys": return 1003
+        case "Down Bad": return 1004
+        case "So Long, London": return 1005
+        case "But Daddy I Love Him": return 1006
+        case "Fresh Out The Slammer": return 1007
+        case "Florida!!!": return 1008
+        case "Guilty as Sin?": return 1009
+        case "Who's Afraid of Little Old Me?": return 1010
+        case "I Can Fix Him (No Really I Can)": return 1011
+        case "loml": return 1012
+        case "I Can Do It With A Broken Heart": return 1013
+        case "The Smallest Man Who Ever Lived": return 1014
+        case "The Alchemy": return 1015
+        case "Clara Bow": return 1016
+        case "The Black Dog": return 1017
+        case "imgonnagetyouback": return 1018
+        case "The Albatross": return 1019
+        case "Chloe or Sam or Sophia or Marcus": return 1020
+        case "How Did It End?": return 1021
+        case "So High School": return 1022
+        case "I Hate It Here": return 1023
+        case "thanK you aIMee": return 1024
+        case "I Look in People's Windows": return 1025
+        case "The Prophecy": return 1026
+        case "Cassandra": return 1027
+        case "Peter": return 1028
+        case "The Bolter": return 1029
+        case "Robin": return 1030
+        case "The Manuscript": return 1031
+            
+        case "Last Christmas": return 1501
+        case "Christmases When You Were Mine": return 1502
+        case "Santa Baby": return 1503
+        case "Silent Night": return 1504
+        case "Christmas Must Be Something More": return 1505
+        case "White Christmas": return 1506
             
         default:
             print("Unlabeled songs:\(self)")
